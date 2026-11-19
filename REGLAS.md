@@ -71,6 +71,10 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 16. **Gasto de tokens:** cuando la sesión ya esté muy cargada, avisar "conviene cerrar la sesión" al final de la
     respuesta (criterios en la skill `cierre-de-sesion`). No cerrar sin que el usuario lo pida.
 
+17. **"Continuemos" / "sigamos"** (sin más detalle) = retomar solo: leer §2 (próximo paso), `docs/TAREAS.md`,
+    `docs/PREGUNTAS.md` (respondidas nuevas) y lo que haya aparecido desde la última sesión (`docs/capturas/`,
+    `prototipo-ui/`, `docs/MJES.md`), contar en 3–4 líneas qué se encontró y arrancar con lo más prioritario.
+
 ## 5. Documentación
 - **Bitácora:** `docs/BITACORA.md`, la más nueva arriba, máximo ~10 líneas por entrada. (La §9 de `RELEVAMIENTO.md`
   quedó como historial de las sesiones 1–3; no se sigue escribiendo ahí.)
