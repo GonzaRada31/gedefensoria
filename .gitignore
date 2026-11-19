@@ -1,0 +1,16 @@
+# Claude Code local settings (específicos de esta máquina)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / Python / entornos (para cuando empiece el desarrollo)
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.local
+.venv/
+dist/
+build/
