@@ -20,3 +20,10 @@ docs/MJES.md
 logs/
 .env*
 !.env.example
+
+# Capturas del FoxPro (pueden tener datos reales): nunca al repo; solo las fichas .md
+docs/capturas/**/*.png
+docs/capturas/**/*.jpg
+docs/capturas/**/*.jpeg
+docs/capturas/**/*.bmp
+docs/capturas/**/*.webp

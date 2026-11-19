@@ -6,6 +6,7 @@
 ## Fase 1 — Análisis y Definición (actual)
 
 ### Relevamiento del sistema legacy (12 de 24 auditadas)
+- [ ] Integrar las fichas de `docs/capturas/` (relevadas con Gemini, ver `docs/PROMPT-GEMINI-CAPTURAS.md`) a RELEVAMIENTO, modelo, RF, skill y tareas
 Las vistas marcadas con 📷 necesitan capturas o descripción del FoxPro por parte del usuario.
 - [ ] 📷 `V-AS-02` Registro de Actuaciones — campos obligatorios, numeración central o por delegación **(prioridad 1)**
 - [ ] 📷 `V-ME-03` Pre-Consultas — agenda de audiencias, nomenclador propio o texto libre
