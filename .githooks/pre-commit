@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Pre-commit: lint, tipos y tests. Si algo falla, el commit se bloquea.
+# La salida de los tests queda en logs/tests-ultimo.log (fuera de git).
+# Activarlo una vez con: git config core.hooksPath .githooks
+# (en Node conviene el script "prepare": "git config core.hooksPath .githooks" para que se active con npm install).
+# AJUSTAR los comandos a los del proyecto (package.json o equivalente).
+
+set -u
+cd "$(git rev-parse --show-toplevel)" || exit 1
+mkdir -p logs
+LOG="logs/tests-ultimo.log"
+
+fail() { echo ""; echo "✖ Commit bloqueado: $1"; [ -n "${2:-}" ] && echo "  $2"; exit 1; }
+
+echo "▶ pre-commit: lint";  npm run --silent lint      || fail "el linter encontró errores."
+echo "▶ pre-commit: tipos"; npm run --silent typecheck || fail "hay errores de tipos."
+
+# Si los tests usan una base local, verificar que esté levantada (ajustar el puerto):
+# if ! (exec 3<>/dev/tcp/127.0.0.1/5432) 2>/dev/null; then fail "la base local no está levantada."; fi
+
+echo "▶ pre-commit: tests (salida en $LOG)"
+echo "# Tests — $(date '+%Y-%m-%d %H:%M:%S')" > "$LOG"
+if npm test --silent >> "$LOG" 2>&1; then
+  echo "✔ pre-commit OK"
+else
+  tail -30 "$LOG"; fail "hay tests que fallan." "Detalle completo en $LOG"
+fi

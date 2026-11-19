@@ -13,7 +13,12 @@ Este índice actúa como el mapa central de toda la documentación del **Sistema
 | **Roadmap del Proyecto** | [docs/ROADMAP.md](ROADMAP.md) | Fases de desarrollo, tareas pendientes e hitos clave. | En Progreso (Fase 1) |
 | **Filosofía de Diseño** | [docs/FILOSOFIA_DISENO.md](FILOSOFIA_DISENO.md) | Principios de diseño, migración de datos y mentalidad To-Be. | Creado |
 | **Índice de Docs** | [docs/INDEX.md](INDEX.md) | Este mapa interactivo de la documentación. | Actualizado |
-| **Handoff / Estado Actual** | [docs/HANDOFF.md](HANDOFF.md) | Estado del proyecto, punto de retoma exacto y cola de trabajo. | Actualizado |
+| **Punto de entrada (Claude y equipo)** | [REGLAS.md](../REGLAS.md) | Objetivo, estado actual, próximo paso y reglas de trabajo. | Actualizado |
+| **Tareas** | [docs/TAREAS.md](TAREAS.md) | Cola de trabajo por fase (checklist). | Actualizado |
+| **Preguntas pendientes** | [docs/PREGUNTAS.md](PREGUNTAS.md) | Definiciones que faltan, con criterio por defecto. | Actualizado |
+| **Decisiones** | [docs/DECISIONES.md](DECISIONES.md) | Registro de decisiones de arquitectura (D-001…). | Actualizado |
+| **Bitácora** | [docs/BITACORA.md](BITACORA.md) | Qué se hizo en cada sesión. | Actualizado |
+| **QA** | [docs/QA.md](QA.md) | Método y registro de pruebas en navegador. | Creado |
 
 ---
 
@@ -22,7 +27,7 @@ Este índice actúa como el mapa central de toda la documentación del **Sistema
 
 | Documento | Ubicación | Módulo / Propósito | Estado |
 | :--- | :--- | :--- | :--- |
-| **Relevamiento de Procesos** | [docs/RELEVAMIENTO.md](RELEVAMIENTO.md) | Análisis de flujos actuales, datos ingresados (Personas, Barrios, Canales). | En Progreso (55%) |
+| **Relevamiento de Procesos** | [docs/RELEVAMIENTO.md](RELEVAMIENTO.md) | Análisis de flujos actuales, datos ingresados (Personas, Barrios, Canales). | En Progreso (50%) |
 | **Registro de Problemáticas** | [docs/PROBLEMATICAS.md](PROBLEMATICAS.md) | Detalle de dolores, cuellos de botella (PF / PT / CB). | Creado |
 
 ---

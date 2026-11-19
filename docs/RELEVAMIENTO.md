@@ -9,7 +9,7 @@ Este documento registra el funcionamiento, estructuras de datos y lógica del si
 *   **Institución:** Defensoría del Pueblo de la Provincia de Jujuy.
 *   **País:** Argentina.
 *   **Alcance:** Provincial (con fuerte implicación en localidades, departamentos y barrios de la provincia de Jujuy).
-*   **Competencia General:** Brinda servicio de asesoramiento y/o intervención ante instituciones y organismos (provinciales, municipales, nacionales, etc.) y ante privados (con limitaciones). *(Detalles legales pendientes en [docs/FILOSOFIA_DISENO.md](file:///c:/Users/redex/Documents/GitHub/Defensoria/docs/FILOSOFIA_DISENO.md)).*
+*   **Competencia General:** Brinda servicio de asesoramiento y/o intervención ante instituciones y organismos (provinciales, municipales, nacionales, etc.) y ante privados (con limitaciones). *(Detalles legales pendientes en [docs/FILOSOFIA_DISENO.md](FILOSOFIA_DISENO.md)).*
 
 ### Infraestructura Tecnológica Actual (Limitaciones Físicas)
 El sistema actual opera a nivel de **Intranet** local y cuenta con severas restricciones de hardware que deben condicionar la arquitectura de la nueva solución:
@@ -180,10 +180,11 @@ Módulo de reportes y búsqueda general del estado del sistema:
 *Este registro actúa como el "tablero de control" de la auditoría del sistema anterior. Permite saber con exactitud científica qué partes del software de escritorio legado ya han sido relevadas, cuáles están bajo análisis y cuáles quedan pendientes para futuras sesiones.*
 
 ### A. Resumen del Estado de Auditoría (KPIs)
-*   **Total de Vistas/Procesos Identificados:** 22
-*   **🟢 Auditados Completamente:** 12 (55%)
-*   **🟡 En Progreso / Auditoría Parcial:** 2 (9%)
-*   **🔴 Pendientes de Auditoría:** 8 (36%)
+*   **Total de Vistas/Procesos Identificados:** 24
+*   **🟢 Auditados Completamente:** 12 (50%)
+*   **🟡 En Progreso / Auditoría Parcial:** 2 (8%)
+*   **🔴 Pendientes de Auditoría:** 10 (42%)
+*   *(Corregido 2026-11-19: la matriz tiene 24 filas; antes figuraba 22.)*
 
 ---
 
@@ -450,7 +451,7 @@ stateDiagram-v2
 
 ## 9. Bitácoras de Sesiones de Trabajo
 
-*Este registro cronológico permite retomar el relevamiento exactamente donde se detuvo en cada sesión de trabajo.*
+*Historial de las sesiones 1 a 3. **Desde el 2026-11-19 la bitácora se lleva en [BITACORA.md](BITACORA.md)** y la cola de trabajo en [TAREAS.md](TAREAS.md).*
 
 ### Sesión 1 — (2026-05-26)
 *   **Actividades Realizadas:**
@@ -514,4 +515,4 @@ stateDiagram-v2
     *   Actualización del `ROADMAP.md`: marcado como completado el ítem "Configuración del entorno de desarrollo y repositorio" con referencia al repo de GitHub.
     *   Creación del documento `HANDOFF.md` con el estado consolidado, diagnóstico de avance y cola de trabajo ordenada por prioridad para retomar desde otra máquina.
 *   **Estado del documento al cierre de sesión:** ✅ Repositorio en GitHub al día. Documentación portátil y consistente.
-*   **Próxima acción al retomar:** Continuar por `V-AS-02 — Registro de Actuaciones`. Ver [HANDOFF.md](HANDOFF.md) para el contexto completo.
+*   **Próxima acción al retomar:** Continuar por `V-AS-02 — Registro de Actuaciones`. *(HANDOFF.md fue reemplazado el 2026-11-19 por [REGLAS.md](../REGLAS.md) y [TAREAS.md](TAREAS.md).)*

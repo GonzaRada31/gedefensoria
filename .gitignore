@@ -14,3 +14,9 @@ __pycache__/
 .venv/
 dist/
 build/
+
+# Metodología de trabajo (kit)
+docs/MJES.md
+logs/
+.env*
+!.env.example
