@@ -107,6 +107,10 @@ se agrega acá en la misma sesión** (§9).
   paréntesis en la ruta (`(tienda)`): crearlos con el editor, no con heredoc de bash (se corta y no crea nada).
   Si Docker cae con "recursos insuficientes" (`0x800705aa`) es falta de RAM: no insistir ni cerrar programas del
   usuario; pedirle que cierre navegadores o reinicie, y dejar documentado qué quedó sin commit.
+- **Git:** mirar `git status` antes de `git add -A`; archivos sueltos del usuario (notas, respuestas de otra IA) no se
+  commitean. Si se coló uno y no hubo push, sacarlo con `git rm --cached` + amend (gedefensoria, 2026-11-19).
+- Redes de organismos con DNS interno lento: un `Could not resolve host` puede ser momentáneo; verificar con
+  `nslookup`/`curl -sI` y reintentar antes de diagnosticar otra cosa.
 
 ## 9. Mejora continua
 Al cerrar cada tarea: ¿aprendimos algo que sirva en **otro** negocio? → agregarlo acá (sección que corresponda) y

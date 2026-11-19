@@ -3,6 +3,12 @@
 > La entrada más nueva arriba. Máximo ~10 líneas cada una. Las mejoras de skills se marcan con `[skill]`.
 > Las sesiones 1 a 3 están en detalle en `RELEVAMIENTO.md` §9 (historial; ya no se escribe ahí).
 
+## 2026-11-19 — Cierre sesión 4
+- Push a GitHub de la metodología y cierre. Sin cambios de stack ni decisiones nuevas.
+- `[skill]` `desarrollo-apps-negocio` §8: revisar `git status` antes de `git add -A` (se coló una nota ajena,
+  sacada antes del push) y reintentar si la red de la Defensoría no resuelve github.com.
+- Próxima sesión: V-AS-02 con capturas, o borrador ER / DEVOPS.md. Responder P1–P6.
+
 ## 2026-11-19 — Sesión 4: nueva PC + metodología
 - Repo clonado en la PC de la Defensoría (`C:\Users\Invitado1\Documents\antigravity\gedefensoria`).
 - Instalado y adaptado el kit de metodología: `CLAUDE.md` → `REGLAS.md`; `docs/` TAREAS, PREGUNTAS, DECISIONES, BITACORA, QA, MJES.
