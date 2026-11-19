@@ -3,6 +3,16 @@
 > La entrada más nueva arriba. Máximo ~10 líneas cada una. Las mejoras de skills se marcan con `[skill]`.
 > Las sesiones 1 a 3 están en detalle en `RELEVAMIENTO.md` §9 (historial; ya no se escribe ahí).
 
+## 2026-11-19 — Sesión 5: modelo de datos y DevOps
+- Sin capturas de V-AS-02 → plan B. Creado `docs/MODELO-DATOS.md` v0.1: 5 diagramas ER (organización, atención,
+  actuaciones, trámites/Libro Diario, catálogos/auditoría), índices, datos personales y pendientes ⏳.
+- Nueva entidad **Atención** (agrupa consultas de una visita). Convenciones en **D-004**.
+- Creado `docs/DEVOPS.md` v0.1: monorepo pnpm, Docker solo para servicios (con límites de RAM), CI, entornos,
+  Azure (Static Web Apps + Container Apps + PostgreSQL Flexible + Blob + Key Vault).
+- QA: los 7 diagramas mermaid se verificaron en Chrome (renderizan sin errores).
+- Preguntas nuevas P7–P12; **P10 (datos fuera de Argentina, Ley 25.326) frena producción**.
+- `[skill]` `gestion-expedientes`: Atención como entidad y puntero al modelo.
+
 ## 2026-11-19 — Cierre sesión 4
 - Push a GitHub de la metodología y cierre. Sin cambios de stack ni decisiones nuevas.
 - `[skill]` `desarrollo-apps-negocio` §8: revisar `git status` antes de `git add -A` (se coló una nota ajena,

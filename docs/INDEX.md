@@ -46,8 +46,9 @@ Este índice actúa como el mapa central de toda la documentación del **Sistema
 
 | Documento | Ubicación | Módulo / Propósito | Estado |
 | :--- | :--- | :--- | :--- |
-| **Arquitectura de Software** | [docs/ARQUITECTURA.md](ARQUITECTURA.md) | Stack tecnológico (React + NestJS + PostgreSQL + Azure), flujos de datos. | Borrador de Stack — Falta ER |
-| **Estrategia DevOps** | `docs/DEVOPS.md` | Contenedores (Docker), pipeline de CI/CD y despliegue a staging. | *Pendiente (Post Relevamiento)* |
+| **Arquitectura de Software** | [docs/ARQUITECTURA.md](ARQUITECTURA.md) | Stack tecnológico (React + NestJS + PostgreSQL + Azure), flujos de datos. | Borrador de Stack |
+| **Modelo de Datos** | [docs/MODELO-DATOS.md](MODELO-DATOS.md) | Diagramas ER, índices y pendientes del modelo (PostgreSQL). | Borrador v0.1 |
+| **DevOps** | [docs/DEVOPS.md](DEVOPS.md) | Entorno local, CI, entornos y propuesta de Azure. | Propuesta v0.1 |
 
 ---
 

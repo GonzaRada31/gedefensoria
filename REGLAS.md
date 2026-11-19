@@ -10,10 +10,11 @@ consultas, derive en tiempo real de Mesa de Entradas a Asesores, gestione Actuac
 trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema viejo: se rediseña** (`docs/FILOSOFIA_DISENO.md`).
 
 ## 2. Estado actual (actualizar al cerrar cada sesión)
-- Fase: **1 — Análisis y Definición.** Relevamiento 12 de 24 vistas (50%). Sin código todavía.
-- Última sesión: 2026-11-19 — ver `docs/BITACORA.md`
+- Fase: **1 — Análisis y Definición.** Relevamiento 12 de 24 vistas (50%). Modelo de datos v0.1 y DevOps v0.1
+  en borrador. Sin código todavía.
+- Última sesión: 2026-11-19 (sesión 5) — ver `docs/BITACORA.md`
 - Próximo paso: auditar **`V-AS-02` — Registro de Actuaciones** (hacen falta capturas del formulario FoxPro).
-  Sin capturas: avanzar `docs/DEVOPS.md` o el borrador del diagrama ER (ver `docs/TAREAS.md`).
+  Sin capturas: máquinas de estado de Actuación/Atención y reglas de plazos hábiles (ver `docs/TAREAS.md`).
 
 ## 3. Índice (leer solo cuando haga falta)
 | Archivo | Cuándo leerlo |
@@ -25,6 +26,7 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 | `docs/RELEVAMIENTO.md` | Al auditar una vista legacy o diseñar algo de un módulo (buscar por ID, ej. `V-AS-02`) |
 | `docs/REQUERIMIENTOS.md` | Al construir una función (RF-ME/AS/AD, RNF) |
 | `docs/ARQUITECTURA.md` · `docs/FILOSOFIA_DISENO.md` | Stack y principios · definiciones institucionales pendientes |
+| `docs/MODELO-DATOS.md` · `docs/DEVOPS.md` | Al tocar base de datos / Prisma · al tocar Docker, CI o Azure |
 | `docs/PROBLEMATICAS.md` · `docs/ROADMAP.md` | Dolores del sistema actual · fases de alto nivel |
 | `docs/QA.md` | Al probar una pantalla en el navegador (método y registro) |
 | `docs/INDEX.md` | Mapa completo de la documentación (para personas) |

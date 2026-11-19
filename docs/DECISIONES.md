@@ -24,3 +24,12 @@
 - **Decisión:** `REGLAS.md` es el punto de entrada (estado + índice); `HANDOFF.md` se eliminó y su contenido pasó a
   `REGLAS.md` §2 y `TAREAS.md`. La bitácora sigue en `BITACORA.md`. El pre-commit queda inactivo hasta que haya código.
 - **Consecuencias:** una sola fuente para estado y cola de trabajo. Las sesiones arrancan leyendo `REGLAS.md` (vía `CLAUDE.md`).
+
+## D-004 — Convenciones del modelo de datos (2026-11-19, criterio por defecto)
+- **Contexto:** hace falta un borrador del modelo para avanzar sin esperar todas las vistas legacy.
+- **Decisión:** nombres en español con la terminología del dominio; UUID v7 en entidades operativas e `int` en
+  catálogos; número oficial separado de la clave; nunca `DELETE` en tablas operativas (anular/desactivar); catálogos en
+  tablas administrables y enums solo para estados de la máquina de estados; entidad nueva **Atención** que agrupa las
+  consultas de una visita (resuelve consulta múltiple e indicador multi-temático). Detalle en `MODELO-DATOS.md`.
+- **Consecuencias:** se puede cambiar sin costo hasta la primera migración (Fase 2). Lo marcado ⏳ en el modelo
+  depende de vistas sin auditar y de P1, P7–P9.

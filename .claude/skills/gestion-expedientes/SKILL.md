@@ -21,6 +21,9 @@ description: Conocimiento del dominio de la Defensoría del Pueblo de Jujuy — 
 | **Libro Diario** | Registro correlativo oficial de documentos que entran y salen | Inalterable; número al pasar a Definitivo |
 | **Nomenclador** | Área → Grupo → Tema → Subtema | Clasificación obligatoria de toda consulta (RF-AS-005) |
 | **Pase** | Derivación de una consulta (ME → Asesor) o de un expediente entre sectores | Asíncrono; el receptor acepta |
+| **Atención** | Una visita física al consultorio (persona o grupo); agrupa sus consultas | Entidad del modelo nuevo (D-004), no existía en el legacy; 2+ consultas = "multi-temática" |
+
+Modelo de datos: `docs/MODELO-DATOS.md` (borrador v0.1, pendientes marcados ⏳).
 
 ⚠️ En otros organismos "actuación" es un paso dentro del expediente: **acá no**. Actuación = expediente, Trámite = paso.
 

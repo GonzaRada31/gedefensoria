@@ -23,11 +23,10 @@ Las vistas marcadas con 📷 necesitan capturas o descripción del FoxPro por pa
   P-TR-01, P-TR-02, P-TR-03, V-PE-01
 
 ### Diseño
-- [ ] Borrador del diagrama ER (Persona/Actuante, Consulta, Actuación, Trámite N:M, Empleado, Sector, Delegación,
-  Nomenclador, Institución, Geografía, Libro Diario, Auditoría) → `docs/MODELO-DATOS.md` (mermaid). Lo que dependa de
-  V-AS-02 queda marcado.
-- [ ] `docs/DEVOPS.md`: Docker local, GitHub Actions (lint, tipos, tests), Azure (Container Apps / App Service,
-  PostgreSQL Flexible, Blob), entornos y secretos.
+- [x] (2026-11-19) Borrador del diagrama ER v0.1 → `docs/MODELO-DATOS.md` (lo pendiente marcado ⏳; D-004)
+- [x] (2026-11-19) `docs/DEVOPS.md` v0.1: monorepo, Docker local liviano, CI, entornos, Azure (producción frenada por P10)
+- [ ] Máquina de estados detallada de Actuación y Atención (transiciones, quién puede cada una) → `MODELO-DATOS.md`
+- [ ] Reglas de cálculo de plazos hábiles (feriados nacionales/provinciales, horas vs días, corte horario)
 - [ ] Mapa de roles y permisos (matriz rol × acción) una vez respondidas ROL-01/02/03.
 
 ### Definiciones institucionales (dependen del usuario / la Defensoría)
