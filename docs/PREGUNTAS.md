@@ -9,11 +9,10 @@
 - a) Un solo correlativo para toda la Defensoría, reiniciado por año (ej. `123/2026`) — lo más simple de auditar
 - b) Correlativo por delegación (ej. `SSJ-123/2026`, `PER-45/2026`)
 - c) Otro formato (contame cuál)
-- *Por defecto:* a) en el borrador del modelo de datos, con el formato configurable. Lo mejor es una captura del FoxPro.
+- *Por defecto:* a), configurable. Lo resuelve una captura del FoxPro (prompt de Gemini).
 
 **P2. ¿Qué pueden hacer la Secretaría General y la Secretaría Legal y Técnica? (ROL-01)**
-- a) Revisan y aprueban borradores (pasan Trámites a Definitivo) y ven todas las Actuaciones (recomendada) — coincide con
-  "Asesor o Secretario" en RF-AS-006 y RF-AS-010
+- a) Revisan y aprueban borradores (pasan Trámites a Definitivo) y ven todas las Actuaciones (recomendada)
 - b) Solo lectura y reportes
 - *Por defecto:* a).
 
@@ -27,50 +26,60 @@
 - b) Además firman resoluciones dentro del sistema
 - *Por defecto:* a).
 
-**P5. Competencia legal (LEGAL-01): ¿podés conseguir la ley orgánica de la Defensoría de Jujuy?**
-- Sirve para tipos de resolución, plazos legales y límites con privados. Si me pasás el número de ley, la busco.
-- *Por defecto:* sigo sin ella; lo legal queda marcado *(a validar)* en la skill `gestion-expedientes`.
+**P5. Ley de la Defensoría (LEGAL-01)**
+- Ya sabemos que es la **Ley N° 6380** (sale del informe de la Defensoría Móvil). Si tenés el texto (PDF o link
+  oficial), pasámelo; si no, lo busco yo. Sirve para tipos de resolución, plazos legales y competencia.
+- *Por defecto:* la busco y la resumo en la skill `gestion-expedientes` marcando lo que haya que validar.
 
-**P6. Foto de una hoja del Libro Diario**
-- Para diseñar su vista digital (P-TR-01). **Tapá nombres y DNI** antes de pasarla.
-- *Por defecto:* modelo con fecha, número, tipo, curso, actuación y destino/origen.
+**P6. Foto de una hoja del Libro Diario** — para diseñar su vista digital. **Tapá nombres y DNI** antes de pasarla.
+- *Por defecto:* fecha, número, tipo, curso, delegación, quién recibe, actuación y destino/origen.
 
-**P7. Numeración del Libro Diario: ¿un solo correlativo o uno por delegación?**
-- a) Un solo correlativo anual para toda la Defensoría (recomendada si hay un único libro físico en Casa Central)
-- b) Un libro por delegación, cada uno con su correlativo
-- *Por defecto:* a), configurable (`docs/MODELO-DATOS.md` §3.4). La foto de P6 probablemente lo responde.
+**P8. "Grupos Sociales":** se resuelve con una captura (prompt de Gemini). *Por defecto:* no se modela hasta verla.
 
-**P8. "Grupos Sociales" (menú Definiciones del FoxPro): ¿qué se carga ahí?**
-- a) Pertenencia del Actuante a un colectivo (comunidad originaria, discapacidad, adultos mayores…) para estadísticas
-- b) Agrupaciones u organizaciones que consultan en conjunto (vecinales, cooperativas)
-- c) No se usa
-- *Por defecto:* no se modela hasta ver una captura; si es a), será un catálogo opcional con marca de dato sensible.
+**P10. ⚖️ Dónde alojar el sistema (cambia D-002, ver D-005 y `DEVOPS.md` §5)**
+- a) ARSAT, en pesos y con los datos en Argentina (recomendada, junto con c)
+- b) Infraestructura de la Provincia (AWS del Ministerio de Modernización), por convenio. Ojo con la independencia:
+  la Defensoría controla al Ejecutivo
+- c) Proveedor argentino privado, en pesos
+- d) Servidor propio nuevo en la Defensoría
+- *Por defecto:* app portable (sirve para cualquiera de las cuatro); se decide antes de producción, con Legal y Técnica.
 
-**P9. ¿Se registra sexo o género del Actuante?**
-- a) Sí, género autopercibido opcional (Ley 26.743), solo para estadísticas (recomendada si la Defensoría informa
-  indicadores por género)
-- b) No se registra
-- *Por defecto:* b) hasta que lo confirmes (mínimo dato necesario).
+**P13. Defensoría Móvil: ¿dónde cargan las consultas en un operativo?** (`PROGRAMAS.md`)
+- a) En el momento, con notebook o celular con datos (recomendada)
+- b) En papel y después en la sede
+- c) Ambas, con un modo sin conexión (mucho más complejo, para una fase posterior)
+- *Por defecto:* a).
 
-**P10. ⚖️ ¿Se pueden alojar los datos fuera de Argentina? (legal, no avanzo sin respuesta para producción)**
-- Azure no tiene región en Argentina; la más cercana es Brasil. La Ley 25.326 (art. 12) limita transferir datos
-  personales a países sin protección "adecuada". Lo tiene que confirmar Legal y Técnica.
-- a) Sí, Azure Brasil está aceptado (con contrato de Microsoft y cláusulas de protección de datos)
-- b) No: hay que alojar en un servidor de la provincia o un proveedor argentino
-- c) Lo consulto
-- *Por defecto:* sigo con la propuesta Azure en `docs/DEVOPS.md` para el entorno de **pruebas con datos inventados**;
-  producción queda frenada hasta tener respuesta.
+**P14. ¿Qué otros programas tiene la Defensoría?** Nombre, si salen a territorio y quién los coordina.
+- *Por defecto:* el catálogo de programas queda abierto; arranca solo con "Defensoría Móvil".
 
-**P11. Suscripción de Azure y dominio: ¿quién los administra?**
-- a) La Defensoría con una suscripción propia (recomendada: el organismo es dueño de sus datos y cuentas)
-- b) TI de la provincia
-- c) Un proveedor externo
-- *Por defecto:* a). Hace falta saber también qué subdominio oficial se usaría.
+**P15. Talleres y charlas: ¿alcanza con la cantidad de asistentes o hace falta la lista de personas?**
+- a) Solo la cantidad (recomendada: mínimo dato necesario)
+- b) Lista nominal
+- *Por defecto:* a).
 
-**P12. ¿Cómo entran los usuarios al sistema?**
-- a) Usuario y contraseña propios del sistema, con segundo factor opcional (recomendada si el organismo no tiene
-  cuentas Microsoft o Google institucionales)
-- b) Con la cuenta institucional (Microsoft 365 / Google Workspace), si existe
-- *Por defecto:* a), dejando preparada la opción b).
+**P16. ¿Desde qué correo salen las invitaciones y los despachos a organismos?**
+- a) Una casilla institucional de la Defensoría (ej. `sistema@<dominio>`), con los datos SMTP que dé TI (recomendada)
+- b) Un servicio de envío externo (suele cobrarse en dólares: choca con P11)
+- *Por defecto:* a). En desarrollo se usa Mailpit (no sale nada a internet).
+
+**P17. Cierre por inactividad: ¿después de cuánto tiempo sin usar el sistema?**
+- a) 30 minutos, con aviso 2 minutos antes y guardado del borrador (recomendada)
+- b) 60 minutos
+- c) Otro
+- *Por defecto:* a), configurable desde el panel.
+
+**P18. Logo y colores institucionales**: ¿hay manual de marca o logo oficial en buena calidad? (para la interfaz)
+- *Por defecto:* paleta sobria (azul institucional y grises), reemplazable cuando llegue el logo.
 
 ## Respondidas
+- **P7 (2026-11-19):** un solo correlativo del Libro Diario para toda la Defensoría. Al abrir un asiento se ve dónde
+  se recibió el documento (delegación), la fecha, quién lo recibió y a qué actuación o actuaciones se adjuntó.
+- **P9 (2026-11-19):** sí, género opcional, elegido de una lista predefinida y administrable, con una opción
+  marcada por defecto (sugerida: "No informa").
+- **P11 (2026-11-19):** por ahora administra el usuario (empleado de planta permanente). La Defensoría tiene
+  limitaciones para pagar en dólares o al exterior (pesa en P10). *Recomendación:* usar cuentas con un e-mail
+  institucional, no personal, y tener un segundo administrador de respaldo.
+- **P12 (2026-11-19):** usuario y contraseña, sin guardado en el navegador, una sola sesión por usuario sin cortes
+  bruscos, alta por invitación desde el listado de RRHH y un Panel de Superadministrador muy completo. Plan en
+  `SEGURIDAD-ACCESO.md`.

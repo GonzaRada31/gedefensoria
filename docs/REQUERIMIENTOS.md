@@ -61,7 +61,7 @@ Este documento especifica formalmente los requerimientos funcionales y no funcio
     *   *Descripción:* Módulo de carga de archivos (PDFs, imágenes) con capacidad de adjuntar documentación tanto al expediente (Actuación) general como a hitos específicos (Trámites). Debe contar con un pre-visualizador rápido e integrado de archivos en el sistema.
 *   **RF-AD-003: Gestión Estricta del Nomenclador de Problemáticas**
     *   *Descripción:* Permitir al rol de Administración/SUPERADM crear y administrar la estructura de Temas, Subtemas y Áreas. Debe contar con algoritmos de validación en tiempo real para evitar la creación de problemáticas duplicadas o sinónimas, manteniendo la base de datos analítica limpia.
-*   **RF-AD-004: Dashboards de Analítica Avanzada e Informes**
+*   **RF-AD-004: Dashboards de Analítica Avanzada e Informes** (catálogo por perfil y definiciones de conteo en `INFORMES.md`)
     *   *Descripción:* Paneles interactivos con gráficos y cruce de datos que permitan medir volúmenes de consultas por temática, carga de trabajo por asesor, tiempos de resolución y zonas demográficas de mayor impacto. Todo esto enfocado a la toma de decisiones operativas y redistribución de recursos.
 *   **RF-AD-005: Libro Diario Digital y Numeración Correlativa Automática**
     *   *Descripción:* El sistema llevará un registro inalterable digital del "Libro Diario" simulando e integrando la correlatividad de salidas/entradas físicas. Al pasar un borrador a definitivo, el sistema generará automáticamente el número oficial correlativo del trámite.
@@ -69,6 +69,23 @@ Este documento especifica formalmente los requerimientos funcionales y no funcio
     *   *Descripción:* Al crear un trámite o expediente, el sistema desplegará un buscador semántico predictivo de carátulas para sugerir nomenclaturas y títulos de problemáticas similares ya cargados, previniendo que expedientes de una misma temática tengan nombres diferentes y facilitando búsquedas por Tema, Empresa u Organismo.
 *   **RF-AD-007: Pases Internos con Motivos Administrables**
     *   *Descripción:* En el circuito de pases, los administradores dispondrán de una interfaz para definir los motivos preestablecidos seleccionables en el menú desplegable (ej. "Para digitalizar", "Para revisión").
+
+### D. Módulo: Programas institucionales (RF-PR) — agregado 2026-11-19
+*   **RF-PR-001: Catálogo de programas y operativos**
+    *   *Descripción:* Administrar programas (Defensoría Móvil y otros), su cronograma de operativos (fecha, turno, lugar, equipo, estado) y un catálogo de lugares reutilizable. Detalle en `PROGRAMAS.md`.
+*   **RF-PR-002: Marca de programa en la atención**
+    *   *Descripción:* Toda atención registrada en un operativo queda marcada con el programa y el operativo, eligiéndolo una sola vez al empezar. La consulta sigue perteneciendo al asesor que atendió y suma una sola vez en el total general.
+*   **RF-PR-003: Actividades y asistentes**
+    *   *Descripción:* Registrar talleres, charlas y jornadas con tema y cantidad de asistentes, sin contarlos como consultas.
+*   **RF-PR-004: Informe automático del programa**
+    *   *Descripción:* Generar el informe del programa (cronograma, personas, consultas, profesionales, lugares, ejes y temas, actividades) sin planillas manuales (`INFORMES.md`, I-05).
+
+### E. Módulo: Acceso y administración del sistema (RF-SI) — agregado 2026-11-19
+*   **RF-SI-001: Alta por invitación desde el listado de RRHH** (importación con vista previa, enlace de un solo uso).
+*   **RF-SI-002: Una sola sesión por usuario sin pérdida de datos** (aviso, guardado automático de borradores y cierre controlado; también por inactividad y por cierre forzado).
+*   **RF-SI-003: Política de contraseñas y segundo factor** (Argon2id, bloqueo por intentos, segundo factor para roles críticos).
+*   **RF-SI-004: Panel del Superadministrador** configurable: usuarios, sesiones, permisos, auditoría, seguridad, servidores, respaldos, tareas, correo y logs. Detalle en `SEGURIDAD-ACCESO.md`.
+*   **RF-SI-005: Centro de ayuda** con el Manual de Procedimientos aprobado (`docs/manual/`), buscable y enlazado a cada pantalla.
 
 ---
 

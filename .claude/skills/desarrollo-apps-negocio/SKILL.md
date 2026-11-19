@@ -112,6 +112,31 @@ se agrega acá en la misma sesión** (§9).
 - Redes de organismos con DNS interno lento: un `Could not resolve host` puede ser momentáneo; verificar con
   `nslookup`/`curl -sI` y reintentar antes de diagnosticar otra cosa.
 
-## 9. Mejora continua
+## 9. Mejora continua: skills y documentación
 Al cerrar cada tarea: ¿aprendimos algo que sirva en **otro** negocio? → agregarlo acá (sección que corresponda) y
 anotarlo en la bitácora con `[skill]`. Lo que solo sirve para este negocio va a su skill específica.
+
+**¿Mejorar una skill existente o crear una nueva?**
+| Situación | Qué hacer |
+|---|---|
+| El usuario corrige algo que podría repetirse | Agregarlo a la skill del tema **en la misma sesión** (regla de oro) |
+| Un dato de una skill resultó falso o quedó viejo | Corregirlo ahí mismo; si viene de un doc fuente (`RELEVAMIENTO`), corregir primero el doc |
+| Una tarea nueva se va a repetir, tiene pasos propios y ninguna skill la cubre (ej. "relevar capturas", "armar un informe") | **Crear skill nueva** |
+| Una skill supera ~150 líneas o mezcla dos temas | Partirla en dos, con descripciones que no se pisen |
+| Es un dato del proyecto (estado, una decisión puntual) | **No** va a una skill: va a `REGLAS`, `DECISIONES` o `docs/` |
+
+**Cómo crear una skill:** carpeta `.claude/skills/<nombre-en-kebab>/SKILL.md` con `name` y una `description` que
+diga **qué hace y cuándo usarla** (con las palabras que usaría el usuario: eso es lo que hace que se active). El cuerpo
+lleva pasos y reglas, no historia; lo largo va a archivos de referencia que la skill nombra. Avisar al usuario y
+listarla en `REGLAS.md` §6.
+
+**Documentar de forma profesional:**
+- Un documento por tema, con versión y fecha en el título (`v0.1 (AAAA-MM-DD)`) y estado (borrador / propuesta /
+  aprobado).
+- Lo pendiente se marca (⏳) y apunta a su pregunta en `PREGUNTAS.md`; lo decidido va a `DECISIONES.md`
+  (Contexto → Decisión → Consecuencias).
+- Una sola fuente por dato: los demás documentos **enlazan**, no copian.
+- Diagramas en Mermaid, verificados en el navegador antes de dar el documento por terminado.
+- Procedimientos para usuarios finales en `docs/manual/` (lenguaje simple, pasos numerados); documentación técnica
+  en `docs/`. No mezclar.
+- Todo documento nuevo se agrega a `docs/INDEX.md` y, si es de consulta frecuente, al índice de `REGLAS.md`.

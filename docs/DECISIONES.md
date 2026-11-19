@@ -33,3 +33,13 @@
   consultas de una visita (resuelve consulta múltiple e indicador multi-temático). Detalle en `MODELO-DATOS.md`.
 - **Consecuencias:** se puede cambiar sin costo hasta la primera migración (Fase 2). Lo marcado ⏳ en el modelo
   depende de vistas sin auditar y de P1, P7–P9.
+
+## D-005 — App portable y alojamiento en Argentina (2026-11-19) — ⏳ PROPUESTA, falta confirmación
+- **Contexto:** la Defensoría no puede pagar en dólares ni al exterior (P11); los datos son sensibles (Ley 25.326,
+  art. 12) y el organismo controla al Poder Ejecutivo (independencia). D-002 (Azure) choca con esto.
+- **Propuesta:** la app se construye **portable**: contenedores Docker, PostgreSQL estándar, almacenamiento
+  compatible con S3 (MinIO en local), secretos por variables de entorno, sin servicios exclusivos de una nube.
+  Producción en **ARSAT o un proveedor argentino en pesos**; la infraestructura provincial (AWS) queda como
+  alternativa con convenio. Detalle y comparación en `DEVOPS.md` §5.
+- **Consecuencias:** si se confirma, D-002 queda reemplazada. El desarrollo local no cambia (salvo MinIO en lugar de
+  Azurite). La elección final del proveedor necesita el visto bueno de Legal y Técnica y de las Autoridades.

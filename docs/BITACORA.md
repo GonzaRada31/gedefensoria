@@ -3,6 +3,16 @@
 > La entrada más nueva arriba. Máximo ~10 líneas cada una. Las mejoras de skills se marcan con `[skill]`.
 > Las sesiones 1 a 3 están en detalle en `RELEVAMIENTO.md` §9 (historial; ya no se escribe ahí).
 
+## 2026-11-19 — Sesión 5 (2ª tanda): informes, programas, acceso y manual
+- Respondidas P7 (Libro Diario único), P9 (género opcional), P11 (sin pagos en dólares), P12 (acceso). Nuevas P13–P18.
+- Analizado el informe de la Defensoría Móvil → `PROGRAMAS.md` + ficha `P-PRG-01` (25 vistas). Ley N° 6380.
+- Nuevos: `INFORMES.md` (conteo: multi-temática = varias consultas, 1 atención), `SEGURIDAD-ACCESO.md`, RF-PR y RF-SI.
+- P10: investigadas opciones de alojamiento en Argentina → **D-005 propuesta** (app portable; ARSAT o proveedor local).
+- DEVOPS: techos de memoria para Docker (WSL ya limitado a 4 GB); MinIO en lugar de Azurite.
+- Manual de Procedimientos iniciado (`docs/manual/`, 3 procedimientos). Prompts de Gemini: capturas y prototipo UI.
+- `[skill]` `cierre-de-sesion`: paso del manual + aviso por tokens · `desarrollo-apps-negocio` §9: crear vs mejorar
+  skills y documentar · `gestion-expedientes`: conteo, programas, Ley 6380, P7/P9.
+
 ## 2026-11-19 — Sesión 5: modelo de datos y DevOps
 - Sin capturas de V-AS-02 → plan B. Creado `docs/MODELO-DATOS.md` v0.1: 5 diagramas ER (organización, atención,
   actuaciones, trámites/Libro Diario, catálogos/auditoría), índices, datos personales y pendientes ⏳.

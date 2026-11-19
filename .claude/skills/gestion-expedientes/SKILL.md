@@ -23,7 +23,15 @@ description: Conocimiento del dominio de la Defensoría del Pueblo de Jujuy — 
 | **Pase** | Derivación de una consulta (ME → Asesor) o de un expediente entre sectores | Asíncrono; el receptor acepta |
 | **Atención** | Una visita física al consultorio (persona o grupo); agrupa sus consultas | Entidad del modelo nuevo (D-004), no existía en el legacy; 2+ consultas = "multi-temática" |
 
+| **Programa / Operativo** | Programa institucional (ej. Defensoría Móvil) y cada salida a territorio | Marca en la Atención; la consulta sigue siendo del asesor (`docs/PROGRAMAS.md`) |
+
 Modelo de datos: `docs/MODELO-DATOS.md` (borrador v0.1, pendientes marcados ⏳).
+
+**Cómo se cuenta (confirmado 2026-11-19):** cada consulta (tema) suma 1 → una atención multi-temática con 3 temas =
+3 consultas, 1 atención, 1 persona. Personas = actuantes distintos. Pre-consultas y asistentes a talleres se cuentan
+aparte. Una consulta nunca suma dos veces: asesor, programa y tema son **cortes** del mismo total (`docs/INFORMES.md`).
+**Ley de la Defensoría:** Ley provincial N° 6380 (competencia: Administración Pública provincial y municipal,
+prestadoras de servicios públicos y de salud) *(texto completo a relevar, P5)*.
 
 ⚠️ En otros organismos "actuación" es un paso dentro del expediente: **acá no**. Actuación = expediente, Trámite = paso.
 
@@ -86,7 +94,9 @@ Modelo de datos: `docs/MODELO-DATOS.md` (borrador v0.1, pendientes marcados ⏳)
 ## 7. Abierto *(a validar — ver `docs/PREGUNTAS.md`)*
 Numeración de Actuaciones (central o por delegación) y campos obligatorios (V-AS-02) · Pre-consultas y agenda de
 audiencias (V-ME-03) · adjuntos por Actuación o por Trámite (V-ADM-02) · remitos entre delegaciones (V-ADM-03) ·
-roles ROL-01/02/03 · competencia legal LEGAL-01 · formato del Libro Diario (foto de una hoja real).
+roles ROL-01/02/03 · competencia legal LEGAL-01 · formato del Libro Diario (foto de una hoja real) · programas
+P13–P15. **Confirmado:** Libro Diario con correlativo único anual; el asiento guarda delegación, fecha y quién
+recibió (P7) · género opcional de lista con valor por defecto (P9).
 
 ## 8. Mejora continua
 Cada respuesta del usuario o vista auditada que confirme o corrija algo de este archivo se aplica acá en la misma

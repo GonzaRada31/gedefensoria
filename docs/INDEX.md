@@ -48,7 +48,12 @@ Este índice actúa como el mapa central de toda la documentación del **Sistema
 | :--- | :--- | :--- | :--- |
 | **Arquitectura de Software** | [docs/ARQUITECTURA.md](ARQUITECTURA.md) | Stack tecnológico (React + NestJS + PostgreSQL + Azure), flujos de datos. | Borrador de Stack |
 | **Modelo de Datos** | [docs/MODELO-DATOS.md](MODELO-DATOS.md) | Diagramas ER, índices y pendientes del modelo (PostgreSQL). | Borrador v0.1 |
-| **DevOps** | [docs/DEVOPS.md](DEVOPS.md) | Entorno local, CI, entornos y propuesta de Azure. | Propuesta v0.1 |
+| **DevOps** | [docs/DEVOPS.md](DEVOPS.md) | Entorno local, límites de memoria de Docker, CI, entornos y opciones de alojamiento. | Propuesta v0.1 |
+| **Informes** | [docs/INFORMES.md](INFORMES.md) | Cómo se cuenta cada número y catálogo de informes por perfil. | Plan v0.1 |
+| **Programas** | [docs/PROGRAMAS.md](PROGRAMAS.md) | Defensoría Móvil y otros programas: operativos, lugares, actividades. | Propuesta v0.1 |
+| **Acceso y Panel** | [docs/SEGURIDAD-ACCESO.md](SEGURIDAD-ACCESO.md) | Ingreso, sesión única, invitaciones, Panel del Superadministrador. | Plan v0.1 |
+| **Manual de Procedimientos** | [docs/manual/README.md](manual/README.md) | Procedimientos por área; base del Centro de ayuda. | Iniciado |
+| **Prompts para Gemini** | [capturas](PROMPT-GEMINI-CAPTURAS.md) · [interfaz](PROMPT-GEMINI-UI.md) | Relevar capturas del FoxPro · prototipo de interfaz. | Listos |
 
 ---
 

@@ -10,11 +10,12 @@ consultas, derive en tiempo real de Mesa de Entradas a Asesores, gestione Actuac
 trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema viejo: se rediseña** (`docs/FILOSOFIA_DISENO.md`).
 
 ## 2. Estado actual (actualizar al cerrar cada sesión)
-- Fase: **1 — Análisis y Definición.** Relevamiento 12 de 24 vistas (50%). Modelo de datos v0.1 y DevOps v0.1
-  en borrador. Sin código todavía.
+- Fase: **1 — Análisis y Definición.** Relevamiento 12 de 25 vistas (48%). En borrador: modelo de datos, DevOps
+  (alojamiento en revisión, D-005), informes, programas, acceso/panel y manual. Sin código todavía.
 - Última sesión: 2026-11-19 (sesión 5) — ver `docs/BITACORA.md`
-- Próximo paso: auditar **`V-AS-02` — Registro de Actuaciones** (hacen falta capturas del formulario FoxPro).
-  Sin capturas: máquinas de estado de Actuación/Atención y reglas de plazos hábiles (ver `docs/TAREAS.md`).
+- Próximo paso: integrar las fichas de capturas que genere Gemini (`docs/capturas/`, prioridad `V-AS-02`) y
+  revisar el prototipo de interfaz (`prototipo-ui/`). Sin eso: planificación detallada del Panel del
+  Superadministrador, máquinas de estado y plazos hábiles (ver `docs/TAREAS.md`).
 
 ## 3. Índice (leer solo cuando haga falta)
 | Archivo | Cuándo leerlo |
@@ -26,7 +27,11 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 | `docs/RELEVAMIENTO.md` | Al auditar una vista legacy o diseñar algo de un módulo (buscar por ID, ej. `V-AS-02`) |
 | `docs/REQUERIMIENTOS.md` | Al construir una función (RF-ME/AS/AD, RNF) |
 | `docs/ARQUITECTURA.md` · `docs/FILOSOFIA_DISENO.md` | Stack y principios · definiciones institucionales pendientes |
-| `docs/MODELO-DATOS.md` · `docs/DEVOPS.md` | Al tocar base de datos / Prisma · al tocar Docker, CI o Azure |
+| `docs/MODELO-DATOS.md` · `docs/DEVOPS.md` | Al tocar base de datos / Prisma · al tocar Docker, CI o alojamiento |
+| `docs/INFORMES.md` · `docs/PROGRAMAS.md` | Cómo se cuenta cada número y qué ve cada perfil · Defensoría Móvil y otros programas |
+| `docs/SEGURIDAD-ACCESO.md` | Ingreso, sesiones, invitaciones y Panel del Superadministrador |
+| `docs/manual/` | Manual de Procedimientos (base del Centro de ayuda): al relevar o cambiar cómo se hace una tarea |
+| `docs/PROMPT-GEMINI-*.md` | Prompts para Gemini: relevar capturas · prototipo de interfaz |
 | `docs/PROBLEMATICAS.md` · `docs/ROADMAP.md` | Dolores del sistema actual · fases de alto nivel |
 | `docs/QA.md` | Al probar una pantalla en el navegador (método y registro) |
 | `docs/INDEX.md` | Mapa completo de la documentación (para personas) |
@@ -60,6 +65,9 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 14. **QA en el navegador lo hace Claude** (Chrome): claro/oscuro, 1440 y 390 px, teclado, consola limpia, cada rol.
 15. **Al auditar una vista legacy:** actualizar su ficha y la matriz en `RELEVAMIENTO.md` §7, los RF afectados, la skill
     `gestion-expedientes` y `TAREAS.md` en la misma sesión.
+
+16. **Gasto de tokens:** cuando la sesión ya esté muy cargada, avisar "conviene cerrar la sesión" al final de la
+    respuesta (criterios en la skill `cierre-de-sesion`). No cerrar sin que el usuario lo pida.
 
 ## 5. Documentación
 - **Bitácora:** `docs/BITACORA.md`, la más nueva arriba, máximo ~10 líneas por entrada. (La §9 de `RELEVAMIENTO.md`

@@ -180,10 +180,11 @@ Módulo de reportes y búsqueda general del estado del sistema:
 *Este registro actúa como el "tablero de control" de la auditoría del sistema anterior. Permite saber con exactitud científica qué partes del software de escritorio legado ya han sido relevadas, cuáles están bajo análisis y cuáles quedan pendientes para futuras sesiones.*
 
 ### A. Resumen del Estado de Auditoría (KPIs)
-*   **Total de Vistas/Procesos Identificados:** 24
-*   **🟢 Auditados Completamente:** 12 (50%)
-*   **🟡 En Progreso / Auditoría Parcial:** 2 (8%)
-*   **🔴 Pendientes de Auditoría:** 10 (42%)
+*   **Total de Vistas/Procesos Identificados:** 25
+*   **🟢 Auditados Completamente:** 12 (48%)
+*   **🟡 En Progreso / Auditoría Parcial:** 3 (12%)
+*   **🔴 Pendientes de Auditoría:** 10 (40%)
+*   *(2026-11-19: se sumó `P-PRG-01` Programas / Defensoría Móvil.)*
 *   *(Corregido 2026-11-19: la matriz tiene 24 filas; antes figuraba 22.)*
 
 ---
@@ -216,6 +217,7 @@ Módulo de reportes y búsqueda general del estado del sistema:
 | **Reportes y Analítica**| `V-REP-03` | Novedades y Carga por Asesor | 🔴 Pendiente | - | Pendiente auditar el panel estadístico del rendimiento diario de los profesionales. |
 | **Acceso y Seguridad** | `V-SEC-02` | Gestión de Perfiles y Autorizaciones | 🔴 Pendiente | - | Pendiente auditar la interfaz granular donde FoxPro define privilegios especiales. |
 | **Herramientas** | `V-HER-01` | Utilidades Locales del Sistema | 🔴 Pendiente | - | Pendiente relevar qué opciones se agrupan en este menú. |
+| **Programas** | `P-PRG-01` | Programas institucionales y operativos (Defensoría Móvil) | 🟡 En Progreso | 2026-11-19 | Analizado el informe de gestión territorial mar–oct 2026. Propuesta de programa/operativo/lugar/actividad en `docs/PROGRAMAS.md`. Faltan P13–P15. |
 
 ---
 
@@ -237,6 +239,12 @@ Módulo de reportes y búsqueda general del estado del sistema:
 *   **Aspectos Pendientes (Próxima Auditoría):**
     *   Auditar la interfaz del formulario en FoxPro: ¿Qué campos son obligatorios al crear el expediente? (Nro de Actuación, Año, Nomenclador de Problemáticas, Responsable, etc.).
     *   ¿Existe generación de números automáticos por delegación o es centralizado?
+
+#### Ficha `P-PRG-01`: Programas institucionales y operativos territoriales (Defensoría Móvil)
+*   **Estado de Auditoría:** 🟡 En Progreso (2026-11-19). Fuente: informe de gestión territorial mar–oct 2026.
+*   **Aspectos Relevados:** operativos con fecha, lugar y turno (a veces dos por día); lugares que se repiten; cifras de personas y consultas por mes y por profesional; talleres con asistentes que no son consultas; temáticas agrupadas en ejes más amplios que el Nomenclador; hoy la consulta queda solo a nombre del asesor y el informe del programa se arma a mano. La ley de la Defensoría es la **Ley N° 6380**.
+*   **Diseño To-Be:** marca de programa/operativo en la Atención (la consulta sigue siendo del asesor y suma una sola vez); catálogo de lugares; actividades con cantidad de asistentes; informe del programa automático. Detalle en `docs/PROGRAMAS.md` e `docs/INFORMES.md`.
+*   **Pendiente:** P13 (carga en territorio), P14 (otros programas), P15 (asistentes).
 
 #### Ficha `V-ME-04`: Formulario de Agregar Registro de Consultas (Mesa de Entradas)
 *   **Estado de Auditoría:** 🟢 Auditada.

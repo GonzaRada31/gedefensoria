@@ -1,7 +1,7 @@
 # DevOps — propuesta v0.1 (2026-11-19)
 
 > Cómo se desarrolla, se prueba y se publica el sistema. Base: D-001 (React + NestJS + PostgreSQL/Prisma) y D-002
-> (Azure). **Es una propuesta:** lo marcado ⏳ espera una respuesta de la Defensoría (`PREGUNTAS.md` P10–P12) y nada
+> (Azure, en revisión por D-005). **Es una propuesta:** lo marcado ⏳ espera respuesta de la Defensoría (`PREGUNTAS.md` P10, P16) y nada
 > de Azure se crea sin confirmación explícita (REGLAS §4.9).
 
 ## 1. Estructura del repositorio (monorepo)
@@ -29,9 +29,28 @@ gedefensoria/
 | Servicio | Imagen | Para qué | RAM máx. |
 |---|---|---|---|
 | `db` | `postgres:16-alpine` | Base local (con `pg_trgm` y `unaccent`) | 512 MB |
-| `azurite` | `mcr.microsoft.com/azure-storage/azurite` | Imita Azure Blob para adjuntos | 128 MB |
+| `minio` | `minio/minio` | Almacenamiento compatible con S3 para adjuntos (portable a cualquier proveedor, D-005) | 128 MB |
 | `mailpit` | `axllent/mailpit` | Atrapa los e-mails de despacho (no sale nada a internet) | 64 MB |
 | `redis` | `redis:7-alpine` | Solo con perfil `--profile redis`, si se prueban varias instancias | 64 MB |
+
+### 2.1 Que Docker no se coma la memoria (PC con 15 GB)
+Docker en Windows corre adentro de una máquina virtual (WSL 2). Si no tiene techo, va tomando memoria y la PC se
+congela. Se ponen **tres techos**, de afuera hacia adentro:
+
+| Nivel | Qué se limita | Estado / valor |
+|---|---|---|
+| 1. WSL 2 (`C:\Users\Invitado1\.wslconfig`) | Memoria total de **todo** Docker | ✅ Ya está: `memory=4GB`, `swap=2GB`, `autoMemoryReclaim=gradual` (devuelve la memoria que no usa). Sugerido sumar `processors=4` |
+| 2. Cada contenedor (`compose.yml`) | Memoria y CPU de cada servicio | `mem_limit` y `cpus` de la tabla de arriba: la suma (≈ 0,8 GB) queda muy por debajo de los 4 GB |
+| 3. PostgreSQL por dentro | Memoria que la base pide | `shared_buffers=128MB`, `work_mem=4MB`, `maintenance_work_mem=64MB`, `max_connections=20` (por parámetros en el compose) |
+
+Además:
+- `restart: "no"` en todos los servicios: **no arrancan solos** al prender la PC.
+- Docker Desktop: desactivar "Start Docker Desktop when you sign in" y activar **Resource Saver** (se duerme si no se
+  usa). Se abre solo cuando se trabaja en el proyecto.
+- Las apps en modo desarrollo (Node) con techo: `NODE_OPTIONS=--max-old-space-size=1024`.
+- Al terminar cada tanda: `pnpm servicios:down` (Claude lo hace solo) y, una vez por mes,
+  `docker system prune` (borra imágenes viejas, libera disco).
+- Si algún día hace falta más memoria (por ejemplo para los tests E2E), se sube `memory` a 6 GB, nunca sin techo.
 
 - Comandos previstos: `pnpm servicios:up` / `pnpm servicios:down` (se apagan al terminar cada tanda),
   `pnpm db:migrate`, `pnpm db:seed` (catálogos + datos **inventados**), `pnpm dev`.
@@ -60,7 +79,37 @@ gedefensoria/
 
 Nunca se copian datos de producción a pruebas ni a local.
 
-## 5. Azure (propuesta)
+## 5. Dónde alojarlo: opciones (P10 y P11) — ⚠️ cambia D-002, ver D-005 (propuesta)
+**Condiciones que surgieron:** la Defensoría **no puede pagar servicios en dólares ni al exterior** (P11); los datos
+son sensibles y la Ley 25.326 (art. 12) limita su transferencia a países sin protección "adecuada" (se puede con
+cláusulas contractuales modelo aprobadas por la AAIP, Disposición 60-E/2016 y Resolución 198/2023, o con
+consentimiento); y la Defensoría **controla a la Administración Pública provincial**, así que alojar sus reclamos en
+la infraestructura del Poder Ejecutivo es un tema de **independencia**, no solo técnico.
+
+| Opción | Pago | Datos en Argentina | Independencia | Comentario |
+|---|---|---|---|---|
+| **A. Infraestructura de la Provincia** (el Ministerio de Planificación Estratégica y Modernización ya corre el GDE provincial en AWS) | Lo paga/gestiona la Provincia por convenio | Depende (AWS São Paulo o la Local Zone de Buenos Aires) | ⚠️ Baja: los datos quedan en manos del controlado | Lo más rápido si hay convenio; exige un acuerdo de confidencialidad fuerte |
+| **B. ARSAT** (empresa del Estado nacional, centro de datos en Argentina) | En pesos, por convenio entre organismos | ✅ Sí | ✅ Buena | Habría que confirmar con ARSAT la oferta vigente para organismos provinciales |
+| **C. Proveedor argentino privado** (servidores virtuales en centros de datos del país) | En pesos, con factura local | ✅ Sí | ✅ Buena | Barato y simple; elegir uno con respaldos, SLA y certificaciones |
+| **D. Servidor propio en la Defensoría** | Compra de equipo (en pesos) | ✅ Sí | ✅ Máxima | Los servidores actuales son viejos: habría que comprar uno nuevo y garantizar respaldo fuera del edificio, energía y personal |
+| **E. Azure / AWS contratado directo** (D-002) | ❌ Dólares, al exterior | ❌ No (Brasil o EE. UU.) | ✅ Buena | Choca con P11. Solo si se paga a través de un revendedor local en pesos y Legal aprueba la transferencia |
+
+**Cómo lo resuelven otras empresas de desarrollo en Argentina con el sector público:** lo más común es (1) usar la
+nube que **ya tiene contratada el gobierno** (como hace Jujuy con AWS para el GDE, o San Luis con su Poder Judicial
+en AWS), (2) **ARSAT** para organismos que necesitan datos en el país y pago en pesos, o (3) un proveedor local en
+pesos. Y casi siempre construyen la app **sin atarse a un proveedor**: contenedores Docker + PostgreSQL estándar +
+almacenamiento compatible con S3. Así se puede mudar de un lugar a otro sin reescribir nada.
+
+**Recomendación (D-005, propuesta):** construir la app **portable** (Docker + PostgreSQL + almacenamiento compatible
+con S3, sin servicios exclusivos de una nube). Para producción, **B (ARSAT) o C (proveedor argentino en pesos)**, y
+pedir a Legal y Técnica que lo valide. A queda como alternativa si hay un convenio que garantice confidencialidad e
+independencia. Mientras se decide, el desarrollo sigue igual: todo corre en la PC.
+
+> La propuesta de Azure de la sección siguiente queda **en suspenso** hasta que se decida D-005. Si se elige otra
+> opción, se reescribe esta sección con el mismo esquema: app en contenedor, base administrada con respaldos,
+> almacenamiento privado, secretos fuera del código, monitoreo y despliegue desde GitHub.
+
+## 5.1 Azure (propuesta original, en suspenso)
 
 ```mermaid
 flowchart LR
@@ -116,5 +165,5 @@ tener la región (P10) y el plan de la suscripción (P11).
 
 ## 8. Orden de implementación (Fase 2)
 1. Monorepo + `compose.yml` + `.env.example` → 2. Pre-commit activo → 3. CI → 4. Seeder con datos inventados →
-5. (Con P10–P12 respondidas y confirmación) recursos de Azure de pruebas → 6. Despliegue continuo a pruebas →
+5. (Con P10 y D-005 resueltos y confirmación) recursos del proveedor elegido para pruebas → 6. Despliegue continuo a pruebas →
 7. Producción, recién cuando haya un circuito completo probado por la Defensoría.

@@ -142,6 +142,7 @@ erDiagram
     string razon_social "si es organización"
     string cuit
     date fecha_nacimiento "edad = calculada"
+    int genero_id FK "opcional; catálogo con valor por defecto (P9)"
     string telefono
     string email
     string calle
@@ -160,6 +161,8 @@ erDiagram
     datetime aceptada_en "el Asesor la toma"
     datetime finalizada_en
     int motivo_sin_atender_id FK
+    int programa_id FK "Defensoría Móvil u otro; null = sede"
+    uuid operativo_id FK "salida a territorio, si la hubo"
   }
   consulta {
     uuid id PK
@@ -194,7 +197,13 @@ erDiagram
 - **Duplicados:** índice único parcial `(tipo_documento_id, nro_documento) WHERE nro_documento IS NOT NULL` + búsqueda
   aproximada por nombre (extensiones `pg_trgm` y `unaccent`) para avisar posibles repetidos.
 - ⏳ "Grupos Sociales" (menú Definiciones del legacy): sin relevar, ver P8.
-- ⏳ Género / sexo: el legacy no lo muestra en `V-ME-04`; ver P9.
+- **Género** (P9): opcional, catálogo `genero` administrable con `es_por_defecto` (sugerido "No informa"); solo se
+  usa agregado en informes.
+- **Cómo se cuenta** (detalle en `INFORMES.md` §1): cada consulta suma 1 (una atención multi-temática con 3 temas
+  = 3 consultas); personas = actuantes distintos; atenciones = visitas. Nunca se suma dos veces la misma consulta.
+- **Programa / operativo** (Defensoría Móvil y otros): marca en la **atención**, que heredan sus consultas. La
+  consulta sigue siendo del asesor que atendió. Modelo completo en `PROGRAMAS.md` §3 (`programa`, `operativo`,
+  `lugar`, `actividad`).
 
 ### 3.3 Actuaciones, pases y remitos
 
@@ -342,10 +351,12 @@ erDiagram
   libro_diario_asiento {
     bigint id PK
     int anio
-    int numero "correlativo ⏳ P7"
+    int numero "correlativo único anual (P7)"
     uuid tramite_id FK, UK
     string curso
     datetime fecha
+    int delegacion_id FK "dónde se recibió o emitió"
+    uuid recibido_por_id FK "quién lo recibió"
     uuid registrado_por_id FK
   }
   prorroga {
@@ -506,11 +517,13 @@ Otros catálogos simples (id, nombre, activo): `tipo_documento`, `origen_consult
 | Pendiente | Impacto |
 |---|---|
 | P1 / `V-AS-02` numeración y campos de Actuación | Clave única de `actuacion`, campos obligatorios, estados de cierre/archivo |
-| P7 numeración del Libro Diario | Clave única de `libro_diario_asiento` (anual central o por delegación) |
+| ~~P7 numeración del Libro Diario~~ | Resuelta: correlativo único anual, con delegación y receptor en el asiento |
 | `V-ME-03` pre-consultas | Posible tabla `audiencia` y nomenclador de pre-consultas |
 | `V-ADM-02` digitalización | Si el adjunto cuelga de actuación, trámite o ambos (hoy: ambos) |
 | `V-ADM-03` remitos | Campos de `remito` |
 | `V-DEF-01/02/03` catálogos | Columnas de geografía, nomenclador, instituciones |
 | `V-SEC-02` perfiles | Autorizaciones por usuario además de por rol |
 | ROL-01/02/03 | Permisos iniciales de cada rol (datos, no estructura) |
-| P8 grupos sociales · P9 género | Tablas o campos nuevos en `actuante` |
+| P8 grupos sociales | Tabla o campo nuevo en `actuante` |
+| P13–P15 programas | Modo sin conexión, catálogo de programas, asistentes nominales o no |
+| `SEGURIDAD-ACCESO.md` | Tablas `sesion`, `invitacion`, `borrador_formulario`, `segundo_factor` (se agregan al detallar) |
