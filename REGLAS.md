@@ -11,8 +11,9 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 
 ## 2. Estado actual (actualizar al cerrar cada sesión)
 - Fase: **1 — Análisis y Definición.** Relevamiento 12 de 25 vistas (48%). En borrador: modelo de datos, DevOps
-  (alojamiento en revisión, D-005), informes, programas, acceso/panel y manual. Sin código todavía.
-- Última sesión: 2026-11-19 (sesión 5) — ver `docs/BITACORA.md`
+  (alojamiento en revisión, D-005), informes, programas (modo sin conexión, D-006), acceso/panel, marco legal y
+  manual. Sin código todavía.
+- Última sesión: 2026-11-19 (sesión 5, cerrada) — ver `docs/BITACORA.md`
 - Próximo paso: integrar las fichas de capturas que genere Gemini (`docs/capturas/`, prioridad `V-AS-02`) y
   revisar el prototipo de interfaz (`prototipo-ui/`). Sin eso: planificación detallada del Panel del
   Superadministrador, máquinas de estado y plazos hábiles (ver `docs/TAREAS.md`).
@@ -30,6 +31,7 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 | `docs/MODELO-DATOS.md` · `docs/DEVOPS.md` | Al tocar base de datos / Prisma · al tocar Docker, CI o alojamiento |
 | `docs/INFORMES.md` · `docs/PROGRAMAS.md` | Cómo se cuenta cada número y qué ve cada perfil · Defensoría Móvil y otros programas |
 | `docs/SEGURIDAD-ACCESO.md` | Ingreso, sesiones, invitaciones y Panel del Superadministrador |
+| `docs/MARCO-LEGAL.md` · `docs/MENSAJES-SECTORES.md` | Leyes que rigen a la Defensoría · pedidos de información a los sectores |
 | `docs/manual/` | Manual de Procedimientos (base del Centro de ayuda): al relevar o cambiar cómo se hace una tarea |
 | `docs/PROMPT-GEMINI-*.md` | Prompts para Gemini: relevar capturas · prototipo de interfaz |
 | `docs/PROBLEMATICAS.md` · `docs/ROADMAP.md` | Dolores del sistema actual · fases de alto nivel |

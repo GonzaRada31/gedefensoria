@@ -74,11 +74,12 @@ Este documento especifica formalmente los requerimientos funcionales y no funcio
 *   **RF-PR-001: Catálogo de programas y operativos**
     *   *Descripción:* Administrar programas (Defensoría Móvil y otros), su cronograma de operativos (fecha, turno, lugar, equipo, estado) y un catálogo de lugares reutilizable. Detalle en `PROGRAMAS.md`.
 *   **RF-PR-002: Marca de programa en la atención**
-    *   *Descripción:* Toda atención registrada en un operativo queda marcada con el programa y el operativo, eligiéndolo una sola vez al empezar. La consulta sigue perteneciendo al asesor que atendió y suma una sola vez en el total general.
+    *   *Descripción:* Control "Pertenece a un programa:" en el formulario (lista de programas activos, por defecto ninguno), usable al cargar en el momento o días después, con operativo opcional. La marca se puede cambiar o quitar después, con motivo y auditoría. La consulta sigue perteneciendo al asesor que atendió y suma una sola vez en el total general.
 *   **RF-PR-003: Actividades y asistentes**
-    *   *Descripción:* Registrar talleres, charlas y jornadas con tema y cantidad de asistentes, sin contarlos como consultas.
+    *   *Descripción:* Tipo de registro "Consulta normal" (por defecto), "Consulta grupal" (agrega filas de personas) o "Taller / charla" (datos mínimos: fecha, lugar, tema, profesional, cantidad y franja etaria; planilla adjunta opcional de acceso restringido). Si los talleres cuentan como consultas lo define un parámetro del Panel del Superadministrador.
 *   **RF-PR-004: Informe automático del programa**
     *   *Descripción:* Generar el informe del programa (cronograma, personas, consultas, profesionales, lugares, ejes y temas, actividades) sin planillas manuales (`INFORMES.md`, I-05).
+*   **RF-PR-005: Modo sin conexión** (fase posterior): registrar atenciones, consultas y talleres sin internet y sincronizar sin duplicar (`PROGRAMAS.md` §6, D-006).
 
 ### E. Módulo: Acceso y administración del sistema (RF-SI) — agregado 2026-11-19
 *   **RF-SI-001: Alta por invitación desde el listado de RRHH** (importación con vista previa, enlace de un solo uso).

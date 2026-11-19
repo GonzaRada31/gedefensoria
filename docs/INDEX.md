@@ -52,6 +52,8 @@ Este índice actúa como el mapa central de toda la documentación del **Sistema
 | **Informes** | [docs/INFORMES.md](INFORMES.md) | Cómo se cuenta cada número y catálogo de informes por perfil. | Plan v0.1 |
 | **Programas** | [docs/PROGRAMAS.md](PROGRAMAS.md) | Defensoría Móvil y otros programas: operativos, lugares, actividades. | Propuesta v0.1 |
 | **Acceso y Panel** | [docs/SEGURIDAD-ACCESO.md](SEGURIDAD-ACCESO.md) | Ingreso, sesión única, invitaciones, Panel del Superadministrador. | Plan v0.1 |
+| **Marco Legal** | [docs/MARCO-LEGAL.md](MARCO-LEGAL.md) | Ley 6380, Constitución 2023, datos personales: impacto en el sistema. | Investigación v0.1 |
+| **Mensajes a sectores** | [docs/MENSAJES-SECTORES.md](MENSAJES-SECTORES.md) | Pedidos de información a Secretarías y Autoridades. | Listos para enviar |
 | **Manual de Procedimientos** | [docs/manual/README.md](manual/README.md) | Procedimientos por área; base del Centro de ayuda. | Iniciado |
 | **Prompts para Gemini** | [capturas](PROMPT-GEMINI-CAPTURAS.md) · [interfaz](PROMPT-GEMINI-UI.md) | Relevar capturas del FoxPro · prototipo de interfaz. | Listos |
 

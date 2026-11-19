@@ -69,10 +69,16 @@ erDiagram
   }
   actividad {
     uuid id PK
-    uuid operativo_id FK
-    string tipo "TALLER, CHARLA, JORNADA"
+    int programa_id FK "opcional"
+    uuid operativo_id FK "opcional"
+    string tipo "TALLER, CHARLA, JORNADA (catálogo)"
+    date fecha
+    int lugar_id FK
     string tema
+    uuid profesional_id FK
     int asistentes "cantidad; sin datos personales"
+    string franja_etaria "MENORES, ADULTOS, MIXTO"
+    uuid adjunto_planilla_id FK "opcional, acceso restringido"
   }
 ```
 
@@ -82,13 +88,26 @@ erDiagram
   asesor como en el del programa, que son cortes del mismo total, no sumas aparte.
 - La marca va en la **atención** (no en cada consulta) porque todas las consultas de una misma visita vienen por el
   mismo canal. Las consultas la heredan, sin duplicar el dato.
-- **Cómo se carga:** quien carga en un operativo elige "Operativo de hoy: [programa · lugar · turno]" una sola vez al
-  empezar. Todas las atenciones que registre quedan marcadas sin tocar nada más. En la sede, por defecto, va
-  "sin programa".
+- **Cómo se carga (decidido 2026-11-19):** en el formulario de la consulta hay un control **"Pertenece a un
+  programa:"** con la lista de programas activos (por defecto, ninguno). Al elegir uno, se puede indicar el
+  operativo (fecha y lugar) si lo hubo. Sirve igual si se carga **en el momento** o **días después**. Atajo
+  opcional: "Operativo de hoy", para no elegirlo en cada carga durante una jornada.
+- **Corrección:** se puede **cambiar de programa** o **quitar la marca** después de cargada (usuario con permiso,
+  motivo obligatorio). El cambio queda en la auditoría y los informes se recalculan solos.
 - **Planificación:** la coordinación carga el cronograma (operativos `PLANIFICADO`), arma el equipo y al terminar lo
   marca `REALIZADO`. Con eso salen solos el cronograma del informe y la cobertura territorial (mapa por barrio).
-- **Talleres:** se registran como `actividad` con cantidad de asistentes. Si en el taller alguien hace una consulta,
-  se carga como consulta normal dentro del mismo operativo.
+- **Tipo de registro (decidido 2026-11-19):** el formulario arranca siempre en **"Consulta normal"** (la más común).
+  Se puede marcar:
+  - **"Consulta grupal"**: habilita más filas para sumar personas.
+  - **"Taller / charla"**: pide **datos mínimos**, porque los participantes a veces no dan sus datos o son menores
+    (charlas en colegios): fecha, lugar o institución, tema, profesional a cargo, cantidad de asistentes,
+    franja etaria (ej. "menores", "adultos", "mixto") y observaciones. Sin datos personales de cada asistente.
+  - **"Adjunta documentación"** (en talleres): foto o PDF de la planilla de asistencia, **solo para control
+    interno**, con acceso restringido (puede tener datos de menores).
+- **¿Los talleres cuentan como consultas?** Lo deciden las Autoridades. Mientras tanto queda como **parámetro del
+  Panel del Superadministrador** (`talleres.cuentan_como_consultas`, por defecto **no**). Si se activa, cada taller
+  suma como **una** consulta, no una por asistente (P19). Los asistentes siempre se informan aparte.
+- Si en un taller alguien hace una consulta individual, se carga como consulta normal con el mismo programa.
 - **Ejes temáticos** ⏳: catálogo `eje_tematico` con una relación N:M a `tema` del Nomenclador. Sirve para todos los
   informes, no solo para los de los programas (confirmar con la coordinación cuáles son los ejes oficiales).
 - **Otros programas sin salidas a territorio** (por ejemplo, uno que atiende por teléfono): `usa_operativos = false`, y
@@ -100,9 +119,29 @@ profesional, por localidad y barrio, por eje y tema, actividades con asistentes,
 anterior. Se exporta a PDF/Excel, con nombres de profesionales solo para uso interno.
 
 ## 5. Preguntas
-- **P13:** ¿dónde cargan las consultas en un operativo? a) En el momento, con notebook o celular con datos
-  (recomendada: el sistema web responsivo alcanza) · b) En papel y después en la sede · c) Ambas: hace falta un
-  modo sin conexión (es mucho más complejo, se deja para una fase posterior).
+- **P13 (respondida):** se carga en el momento **o** días después, y tiene que poder trabajarse **sin internet**
+  → §6.
 - **P14:** ¿qué otros programas existen? (nombre, si salen a territorio, quién coordina).
-- **P15:** en los talleres, ¿alcanza con la **cantidad** de asistentes o necesitan **lista nominal**? Recomendada:
-  cantidad (mínimo dato necesario).
+- **P15 (respondida):** talleres con datos mínimos y cantidad de asistentes, más la planilla adjunta opcional.
+- **P19:** si las Autoridades deciden que los talleres cuentan, ¿suman **una** consulta por taller (recomendada) o
+  **una por asistente**?
+
+## 6. Modo sin conexión — plan v0.1 (para una fase posterior al núcleo)
+**Objetivo:** que el equipo pueda registrar consultas y talleres en territorio aunque no haya internet, y que todo
+se suba solo y sin duplicar cuando vuelva la conexión.
+
+| Tema | Propuesta |
+|---|---|
+| Tecnología | La misma app web instalada como **PWA** (aplicación web que se instala en la notebook o el celular y funciona sin conexión). No es una app aparte |
+| Qué funciona sin conexión | Registrar atenciones, consultas (normales y grupales) y talleres con su programa; buscar personas en una **copia reducida** de los catálogos (nomenclador, localidades, barrios, programas, lugares) |
+| Qué **no** funciona sin conexión | Ver antecedentes completos, actuaciones y trámites, pases y numeraciones oficiales (necesitan el servidor) |
+| Guardado local | En el navegador (IndexedDB), **cifrado** con una clave derivada de la sesión; se borra solo al sincronizar y a los N días ⏳ |
+| Sincronización | Cola de envíos: al volver la conexión, sube todo en orden. Cada registro lleva un identificador único creado en el equipo (UUID), así nunca se duplica aunque se reintente |
+| Personas repetidas | Si al sincronizar el DNI ya existe en la base, se vincula a esa persona; si hay diferencias (domicilio, teléfono), se marca para revisión en vez de pisar datos |
+| Números oficiales | Se asignan **en el servidor** al sincronizar (nunca en el equipo), para no romper la correlatividad |
+| Seguridad | Solo equipos autorizados y usuarios con permiso "trabajo sin conexión"; sesión sin conexión limitada (ej. 12 h); todo queda en la auditoría al subir |
+| Avisos | Indicador siempre visible: "Sin conexión — 7 registros pendientes de subir" |
+
+Riesgo: suma bastante complejidad (sincronización, conflictos, pruebas). Por eso se construye **después** del núcleo
+del sistema (Mesa de Entradas, Asesor, Actuaciones), pero el modelo ya queda preparado: UUID generados en el equipo y
+marca de programa en la atención (D-006, propuesta).

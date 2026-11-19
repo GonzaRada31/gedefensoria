@@ -35,13 +35,17 @@ Las vistas marcadas con 📷 necesitan capturas o descripción del FoxPro por pa
 - [ ] **Planificación detallada del Panel del Superadministrador** (pantallas, métricas, alertas) — sesión dedicada
 - [ ] Detallar cada informe (I-01…I-13): filtros, columnas, gráficos, exportación
 - [ ] Prototipo de interfaz con Gemini (`docs/PROMPT-GEMINI-UI.md`) → revisión en Chrome y tabla "qué traemos"
+- [ ] Detallar el modo sin conexión (PWA, D-006) antes de la fase de Defensoría Móvil
 
 ### Definiciones institucionales (dependen del usuario / la Defensoría)
 - [ ] ROL-01 Secretaría General y Legal y Técnica · ROL-02 Secretaría Privada · ROL-03 Autoridades (ver `PREGUNTAS.md`)
-- [ ] LEGAL-01 Competencia legal: relevar la **Ley N° 6380** (P5)
+- [x] (2026-11-19) Investigación inicial del marco legal → `docs/MARCO-LEGAL.md`
+- [ ] LEGAL-01: texto completo de la Ley 6380 + informe de Legal y Técnica (mensaje en `MENSAJES-SECTORES.md`)
+- [ ] Enviar los mensajes de `MENSAJES-SECTORES.md` (lo hace el usuario) y cargar las respuestas (P2–P5)
 - [ ] Foto de una hoja real del Libro Diario
 - [ ] P10 / D-005: dónde se aloja producción (ARSAT, proveedor local, Provincia o servidor propio) con Legal y Técnica
-- [ ] P13–P18 (programas, correo, inactividad, logo)
+- [ ] P14, P16–P19 (programas, correo, inactividad, logo, cómo suma un taller)
+- [ ] Decisión de las Autoridades: ¿los talleres cuentan como consultas? (parámetro del panel)
 
 ### Manual de Procedimientos (se actualiza en cada cierre)
 - [x] (2026-11-19) Estructura y plantilla (`docs/manual/README.md`) + PROC-ME-01, PROC-AS-01, PROC-PR-01 en borrador

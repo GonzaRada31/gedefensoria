@@ -43,3 +43,11 @@
   alternativa con convenio. Detalle y comparación en `DEVOPS.md` §5.
 - **Consecuencias:** si se confirma, D-002 queda reemplazada. El desarrollo local no cambia (salvo MinIO en lugar de
   Azurite). La elección final del proveedor necesita el visto bueno de Legal y Técnica y de las Autoridades.
+
+## D-006 — Modo sin conexión como PWA (2026-11-19) — ⏳ PROPUESTA
+- **Contexto:** la Defensoría Móvil carga consultas en territorio, a veces sin internet (P13).
+- **Propuesta:** la misma app web instalable como PWA, con guardado local cifrado (IndexedDB), cola de
+  sincronización e identificadores UUID generados en el equipo; los números oficiales se asignan en el servidor.
+  Alcance limitado a registrar atenciones, consultas y talleres. Plan en `PROGRAMAS.md` §6.
+- **Consecuencias:** se construye después del núcleo, pero desde ahora los modelos usan UUID generables en el
+  cliente y validación compartida (Zod en `packages/shared`) para que el equipo valide igual que el servidor.

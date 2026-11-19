@@ -222,7 +222,8 @@ erDiagram
 
   actuacion {
     uuid id PK
-    int numero "⏳ P1: correlativo anual central o por delegación"
+    int numero "correlativo único que reinicia cada año (P1)"
+    string numero_legacy "número histórico del FoxPro (migración)"
     int anio
     int delegacion_id FK
     int tipo_actuacion_id FK "catálogo; cada tipo es SERVICIO o CONFLICTO"
@@ -268,8 +269,11 @@ erDiagram
   }
 ```
 
-- **Número oficial:** único `(anio, numero)` o `(delegacion_id, anio, numero)` según P1 ⏳. Se genera en el servidor
-  con un contador bloqueado por fila (tabla `contador`, ver §3.5), nunca con `MAX()+1`.
+- **Número oficial (P1, decidido):** correlativo **único para toda la Defensoría que reinicia el 1° de enero**:
+  único `(anio, numero)`. Se muestra con un formato configurable, por defecto `DPJUJ-{numero}-{anio}`
+  (ej. `DPJUJ-123-2026`; parámetro `numeracion.formato_actuacion`). Se genera en el servidor con un contador
+  bloqueado por fila (tabla `contador`, §3.5), nunca con `MAX()+1`. Hoy el FoxPro usa un correlativo histórico sin
+  reinicio: al migrar, ese número se guarda en `numero_legacy` y sigue siendo buscable.
 - **Servicio:** se crea ya cerrada (`fecha_cierre = fecha_apertura`, `tipo_cierre = SERVICIO`) desde la consulta.
 - **Conflicto:** se cierra con un trámite de tipo Acta de Cierre o Constancia de Cierre (RELEVAMIENTO §8.H).
 - **Ubicación actual** = sector destino del último pase `ACEPTADO` (se calcula). Un pase pendiente no mueve el
@@ -516,7 +520,7 @@ Otros catálogos simples (id, nombre, activo): `tipo_documento`, `origen_consult
 ## 7. Pendientes que cambian el modelo
 | Pendiente | Impacto |
 |---|---|
-| P1 / `V-AS-02` numeración y campos de Actuación | Clave única de `actuacion`, campos obligatorios, estados de cierre/archivo |
+| `V-AS-02` campos de Actuación (numeración ya resuelta, P1) | Campos obligatorios, estados de cierre/archivo |
 | ~~P7 numeración del Libro Diario~~ | Resuelta: correlativo único anual, con delegación y receptor en el asiento |
 | `V-ME-03` pre-consultas | Posible tabla `audiencia` y nomenclador de pre-consultas |
 | `V-ADM-02` digitalización | Si el adjunto cuelga de actuación, trámite o ambos (hoy: ambos) |

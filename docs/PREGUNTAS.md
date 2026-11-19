@@ -5,31 +5,13 @@
 
 ## Pendientes
 
-**P1. Numeración de Actuaciones (V-AS-02): ¿cómo se numeran hoy?**
-- a) Un solo correlativo para toda la Defensoría, reiniciado por año (ej. `123/2026`) — lo más simple de auditar
-- b) Correlativo por delegación (ej. `SSJ-123/2026`, `PER-45/2026`)
-- c) Otro formato (contame cuál)
-- *Por defecto:* a), configurable. Lo resuelve una captura del FoxPro (prompt de Gemini).
+**P2, P3 y P4. Roles de Secretarías y Autoridades (ROL-01/02/03)** → se pide a cada sector con los mensajes de
+`MENSAJES-SECTORES.md`.
+- *Por defecto mientras tanto:* Secretarías General y Legal y Técnica revisan y aprueban borradores y ven todas las
+  Actuaciones; Secretaría Privada autoriza Actas y despacha por e-mail; Autoridades ven todo y los tableros sin cargar.
 
-**P2. ¿Qué pueden hacer la Secretaría General y la Secretaría Legal y Técnica? (ROL-01)**
-- a) Revisan y aprueban borradores (pasan Trámites a Definitivo) y ven todas las Actuaciones (recomendada)
-- b) Solo lectura y reportes
-- *Por defecto:* a).
-
-**P3. ¿Qué hace la Secretaría Privada además de autorizar Actas y enviar e-mails? (ROL-02)**
-- a) Solo eso: autoriza números de Acta y despacha por e-mail; ve las Actuaciones que pasan por ella (recomendada)
-- b) Además maneja la agenda de audiencias del Defensor (se cruza con Pre-consultas, V-ME-03)
-- *Por defecto:* a), dejando lugar para b).
-
-**P4. Autoridades (Defensor y Adjuntos) — ROL-03**
-- a) Ven todo y los tableros; no cargan datos (recomendada)
-- b) Además firman resoluciones dentro del sistema
-- *Por defecto:* a).
-
-**P5. Ley de la Defensoría (LEGAL-01)**
-- Ya sabemos que es la **Ley N° 6380** (sale del informe de la Defensoría Móvil). Si tenés el texto (PDF o link
-  oficial), pasámelo; si no, lo busco yo. Sirve para tipos de resolución, plazos legales y competencia.
-- *Por defecto:* la busco y la resumo en la skill `gestion-expedientes` marcando lo que haya que validar.
+**P5. Marco legal** → investigación inicial en `MARCO-LEGAL.md` (Ley 6380, Constitución 2023 art. 77, Ley 25.326) y
+pedido de informe a Legal y Técnica (`MENSAJES-SECTORES.md` §2).
 
 **P6. Foto de una hoja del Libro Diario** — para diseñar su vista digital. **Tapá nombres y DNI** antes de pasarla.
 - *Por defecto:* fecha, número, tipo, curso, delegación, quién recibe, actuación y destino/origen.
@@ -44,19 +26,13 @@
 - d) Servidor propio nuevo en la Defensoría
 - *Por defecto:* app portable (sirve para cualquiera de las cuatro); se decide antes de producción, con Legal y Técnica.
 
-**P13. Defensoría Móvil: ¿dónde cargan las consultas en un operativo?** (`PROGRAMAS.md`)
-- a) En el momento, con notebook o celular con datos (recomendada)
-- b) En papel y después en la sede
-- c) Ambas, con un modo sin conexión (mucho más complejo, para una fase posterior)
-- *Por defecto:* a).
-
 **P14. ¿Qué otros programas tiene la Defensoría?** Nombre, si salen a territorio y quién los coordina.
 - *Por defecto:* el catálogo de programas queda abierto; arranca solo con "Defensoría Móvil".
 
-**P15. Talleres y charlas: ¿alcanza con la cantidad de asistentes o hace falta la lista de personas?**
-- a) Solo la cantidad (recomendada: mínimo dato necesario)
-- b) Lista nominal
-- *Por defecto:* a).
+**P19. Si las Autoridades deciden que los talleres cuentan como consultas: ¿cómo suman?**
+- a) Una consulta por taller (recomendada: no infla el total)
+- b) Una consulta por asistente
+- *Por defecto:* el parámetro del panel arranca desactivado (no cuentan); si se activa, a).
 
 **P16. ¿Desde qué correo salen las invitaciones y los despachos a organismos?**
 - a) Una casilla institucional de la Defensoría (ej. `sistema@<dominio>`), con los datos SMTP que dé TI (recomendada)
@@ -73,6 +49,14 @@
 - *Por defecto:* paleta sobria (azul institucional y grises), reemplazable cuando llegue el logo.
 
 ## Respondidas
+- **P1 (2026-11-19):** correlativo único para toda la Defensoría que **reinicia cada año** (Actuación N° 1 cada
+  1° de enero), con el año bien diferenciado. Formato en documentos: `DPJUJ-<número>-<año>` (configurable). Hoy el
+  FoxPro numera de corrido desde el primer día: ese número se conserva como número histórico al migrar.
+- **P13 (2026-11-19):** se carga en el momento o días después; selector "Pertenece a un programa" editable después
+  (cambiar o quitar, con motivo); se planifica **modo sin conexión** (`PROGRAMAS.md` §6, D-006).
+- **P15 (2026-11-19):** registro tipo "Taller / charla" con datos mínimos (participantes que no dan datos o son
+  menores) y planilla adjunta opcional solo para control interno. Si cuentan como consultas lo deciden las
+  Autoridades: parámetro del panel (P19).
 - **P7 (2026-11-19):** un solo correlativo del Libro Diario para toda la Defensoría. Al abrir un asiento se ve dónde
   se recibió el documento (delegación), la fecha, quién lo recibió y a qué actuación o actuaciones se adjuntó.
 - **P9 (2026-11-19):** sí, género opcional, elegido de una lista predefinida y administrable, con una opción

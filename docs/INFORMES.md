@@ -16,7 +16,8 @@ informe se calcula solo y siempre de la misma manera.
 | **Atenciones** | Visitas (cada vez que una persona o un grupo es atendido). 1 atención = 1 o más consultas | — |
 | **Pre-consultas** | Se cuentan **aparte**: no suman a "Consultas" ni a la carga de los asesores | — |
 | **Actuaciones abiertas / cerradas** | Por fecha de apertura / de cierre; de Servicio y de Conflicto por separado | — |
-| **Asistentes a actividades** | Personas en talleres o charlas (no son consultas, ver `PROGRAMAS.md`) | "Taller Perico": 81 asistentes |
+| **Asistentes a actividades** | Personas en talleres o charlas, informadas aparte (`PROGRAMAS.md`) | "Taller Perico": 81 asistentes |
+| **Talleres como consultas** | Según el parámetro `talleres.cuentan_como_consultas` del panel (por defecto **no**; lo deciden las Autoridades). Si se activa: 1 taller = 1 consulta (P19) | — |
 
 **Respuesta a "¿la multi-temática suma como una o como varias?":** suma como **varias consultas** (una por tema) y
 como **una sola atención** y **una persona** (o las del grupo). Las tres cifras se muestran juntas, así no se infla

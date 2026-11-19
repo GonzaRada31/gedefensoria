@@ -238,7 +238,7 @@ Módulo de reportes y búsqueda general del estado del sistema:
     *   Diferencia entre Actuación de Servicio (cierre rápido) y Actuación de Conflicto (inicia trámites).
 *   **Aspectos Pendientes (Próxima Auditoría):**
     *   Auditar la interfaz del formulario en FoxPro: ¿Qué campos son obligatorios al crear el expediente? (Nro de Actuación, Año, Nomenclador de Problemáticas, Responsable, etc.).
-    *   ¿Existe generación de números automáticos por delegación o es centralizado?
+    *   ~~¿Numeración por delegación o centralizada?~~ **Respondido 2026-11-19 (P1):** hoy es un correlativo único de corrido desde el inicio del sistema; el To-Be reinicia cada año, formato `DPJUJ-<número>-<año>` (configurable); el número histórico se conserva al migrar.
 
 #### Ficha `P-PRG-01`: Programas institucionales y operativos territoriales (Defensoría Móvil)
 *   **Estado de Auditoría:** 🟡 En Progreso (2026-11-19). Fuente: informe de gestión territorial mar–oct 2026.

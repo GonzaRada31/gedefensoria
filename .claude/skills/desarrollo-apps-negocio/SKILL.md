@@ -68,6 +68,9 @@ se agrega acá en la misma sesión** (§9).
    Si son largos, mostrarlos **dentro de la app** con botón "Copiar" (ej.: pantalla de copias de seguridad).
 7. QA en el navegador lo hace el agente (Chrome), en claro/oscuro y a 390 px; el dueño no revisa a mano.
 8. Respuestas largas a un archivo; en la terminal, un resumen corto.
+9. **Reglas de negocio que deciden los superiores del cliente** (ej. si un taller cuenta como consulta): no
+   darlas por hechas ni fijarlas en el código. Van como **parámetro configurable** con un valor por defecto
+   conservador y una pregunta pendiente (gedefensoria, 2026-11-19).
 
 ## 5. Seguridad y datos personales
 - Secretos solo en variables de entorno (Vercel / GitHub Secrets); `.env*` fuera del repo.

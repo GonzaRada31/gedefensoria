@@ -3,6 +3,18 @@
 > La entrada más nueva arriba. Máximo ~10 líneas cada una. Las mejoras de skills se marcan con `[skill]`.
 > Las sesiones 1 a 3 están en detalle en `RELEVAMIENTO.md` §9 (historial; ya no se escribe ahí).
 
+## 2026-11-19 — Cierre sesión 5
+- P1 respondida: Actuaciones con correlativo único que reinicia cada año, formato `DPJUJ-<n>-<año>` (configurable);
+  el número histórico del FoxPro se conserva al migrar. P13 y P15 respondidas; nueva P19.
+- Defensoría Móvil: selector "Pertenece a un programa" editable después; tipos de registro (normal / grupal /
+  taller con datos mínimos y planilla adjunta); talleres-como-consultas = parámetro del panel; **modo sin conexión
+  planificado** (PWA, D-006 propuesta).
+- Nuevos: `MARCO-LEGAL.md` (Ley 6380, Constitución 2023 art. 77) y `MENSAJES-SECTORES.md` (pedidos a Secretarías
+  y Autoridades para P2–P5). Manual: PROC-PR-01 actualizado.
+- `[skill]` `desarrollo-apps-negocio` §4: reglas que deciden los superiores del cliente → parámetro configurable,
+  no un hecho · `gestion-expedientes`: numeración, programas, talleres, Ley 6380.
+- Próxima sesión: el usuario pasa capturas a Gemini → integrar `docs/capturas/`; revisar `prototipo-ui/`.
+
 ## 2026-11-19 — Sesión 5 (2ª tanda): informes, programas, acceso y manual
 - Respondidas P7 (Libro Diario único), P9 (género opcional), P11 (sin pagos en dólares), P12 (acceso). Nuevas P13–P18.
 - Analizado el informe de la Defensoría Móvil → `PROGRAMAS.md` + ficha `P-PRG-01` (25 vistas). Ley N° 6380.

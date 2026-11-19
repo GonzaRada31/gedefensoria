@@ -23,15 +23,17 @@ description: Conocimiento del dominio de la Defensoría del Pueblo de Jujuy — 
 | **Pase** | Derivación de una consulta (ME → Asesor) o de un expediente entre sectores | Asíncrono; el receptor acepta |
 | **Atención** | Una visita física al consultorio (persona o grupo); agrupa sus consultas | Entidad del modelo nuevo (D-004), no existía en el legacy; 2+ consultas = "multi-temática" |
 
-| **Programa / Operativo** | Programa institucional (ej. Defensoría Móvil) y cada salida a territorio | Marca en la Atención; la consulta sigue siendo del asesor (`docs/PROGRAMAS.md`) |
+| **Programa / Operativo** | Programa institucional (ej. Defensoría Móvil) y cada salida a territorio | Selector "Pertenece a un programa" (editable después, con motivo); la consulta sigue siendo del asesor (`docs/PROGRAMAS.md`) |
+| **Taller / charla** | Actividad con datos mínimos y cantidad de asistentes (pueden ser menores) | Si cuenta como consulta lo define un parámetro (decisión de las Autoridades) |
 
 Modelo de datos: `docs/MODELO-DATOS.md` (borrador v0.1, pendientes marcados ⏳).
 
 **Cómo se cuenta (confirmado 2026-11-19):** cada consulta (tema) suma 1 → una atención multi-temática con 3 temas =
 3 consultas, 1 atención, 1 persona. Personas = actuantes distintos. Pre-consultas y asistentes a talleres se cuentan
 aparte. Una consulta nunca suma dos veces: asesor, programa y tema son **cortes** del mismo total (`docs/INFORMES.md`).
-**Ley de la Defensoría:** Ley provincial N° 6380 (competencia: Administración Pública provincial y municipal,
-prestadoras de servicios públicos y de salud) *(texto completo a relevar, P5)*.
+**Ley de la Defensoría:** Ley provincial N° 6380 (B.O. N° 2/2024): competencia sobre la Administración Pública
+provincial y municipal y prestadoras de servicios públicos y de salud; no modifica actos administrativos
+(recomienda, exhorta, media); deriva lo que está fuera de competencia. Detalle y pendientes en `docs/MARCO-LEGAL.md`.
 
 ⚠️ En otros organismos "actuación" es un paso dentro del expediente: **acá no**. Actuación = expediente, Trámite = paso.
 
@@ -95,7 +97,7 @@ prestadoras de servicios públicos y de salud) *(texto completo a relevar, P5)*.
 Numeración de Actuaciones (central o por delegación) y campos obligatorios (V-AS-02) · Pre-consultas y agenda de
 audiencias (V-ME-03) · adjuntos por Actuación o por Trámite (V-ADM-02) · remitos entre delegaciones (V-ADM-03) ·
 roles ROL-01/02/03 · competencia legal LEGAL-01 · formato del Libro Diario (foto de una hoja real) · programas
-P13–P15. **Confirmado:** Libro Diario con correlativo único anual; el asiento guarda delegación, fecha y quién
+P13–P15. **Confirmado:** Actuaciones con correlativo único que reinicia cada año, formato `DPJUJ-<n>-<año>` configurable; el número histórico del FoxPro se conserva (P1) · Libro Diario con correlativo único anual; el asiento guarda delegación, fecha y quién
 recibió (P7) · género opcional de lista con valor por defecto (P9).
 
 ## 8. Mejora continua
