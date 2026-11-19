@@ -501,3 +501,17 @@ stateDiagram-v2
 #### 📌 Punto de Retoma Exacto para la Próxima Sesión
 
 > Al iniciar la próxima sesión, comenzar por la **vista `V-AS-02` (Registro de Actuaciones)**, que es la más crítica funcionalmente: define cómo se genera el expediente principal del sistema y sus reglas de numeración. Si el usuario puede compartir capturas del formulario de FoxPro para crear/editar una Actuación, se podrá auditar completamente en esa sesión.
+
+---
+
+### Sesión 3 — (2026-11-19)
+
+*   **Resumen de actividades:**
+    *   Revisión diagnóstica completa del estado del proyecto: se auditaron todos los documentos existentes para generar un mapa claro de avance y deuda pendiente.
+    *   **Inicialización del repositorio Git** y primer commit con toda la documentación existente.
+    *   **Creación del repositorio remoto en GitHub:** `https://github.com/GonzaRada31/gedefensoria` y push inicial a rama `main`.
+    *   Corrección crítica del `INDEX.md`: eliminadas todas las rutas absolutas `file:///c:/Users/redex/...` y reemplazadas por rutas relativas portables, garantizando que los links funcionen desde cualquier máquina tras clonar el repo.
+    *   Actualización del `ROADMAP.md`: marcado como completado el ítem "Configuración del entorno de desarrollo y repositorio" con referencia al repo de GitHub.
+    *   Creación del documento `HANDOFF.md` con el estado consolidado, diagnóstico de avance y cola de trabajo ordenada por prioridad para retomar desde otra máquina.
+*   **Estado del documento al cierre de sesión:** ✅ Repositorio en GitHub al día. Documentación portátil y consistente.
+*   **Próxima acción al retomar:** Continuar por `V-AS-02 — Registro de Actuaciones`. Ver [HANDOFF.md](HANDOFF.md) para el contexto completo.
