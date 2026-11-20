@@ -3,6 +3,25 @@
 > La entrada más nueva arriba. Máximo ~10 líneas cada una. Las mejoras de skills se marcan con `[skill]`.
 > Las sesiones 1 a 3 están en detalle en `RELEVAMIENTO.md` §9 (historial; ya no se escribe ahí).
 
+## 2026-11-20 — Sesión 7: Estilo Canva en el prototipo
+- Prompt para Canva IA (`docs/PROMPT-CANVA-UI.md`); maqueta elegida, código exportado en `docs/modelocanva.md`.
+- Prototipo adoptó el estilo Canva: tokens verde azulado, menú lateral de color con ítem activo blanco, radios 10/15 px,
+  sombras suaves, botón primario sólido también en oscuro, estados sky/amber/emerald/purple (nuevo "Derivada").
+- Versión celular: barra inferior, tarjetas en lugar de tabla, header compacto. Encabezado de pantalla único (`PageHeader`).
+- "Cola del día" → "Atenciones del día" en toda la app. Ancho de contenido 1540 px y header alineado con el centro.
+- Ficha de usuario + Configuración al pie del menú. Mapa de zonas: `docs/PARTES-PANTALLA.md`. Preguntas P20–P21.
+- [skill] `diseno-apps-gestion` §6: no limitar el ancho de pantallas de trabajo con max-w chico centrado.
+
+## 2026-11-19 — Sesión 6: Prototipo UI navegable (Marco, Mesa de Entradas y tokens)
+- Creado `prototipo-ui/` (React 18 + TS + Tailwind + Radix + TanStack Table + Lucide).
+- Tokens CSS para tres temas: Claro, Oscuro y Negro (OLED) + Sistema, contrastes WCAG 2.1 AA/AAA. Tipografías locales Inter y Plus Jakarta Sans sin CDN.
+- Pantalla 2 (Marco de la app): menú lateral oscuro por tarea (`chrome`), colapso con Ctrl+B, estado operativo al pie, barra superior responsive (un solo renglón a 390 px), miga de pan, buscador global (Ctrl+K) y selector de rol de demostración.
+- Pantalla 3 (Mesa de Entradas): pestañas con contadores dinámicos, tabla densa, motivo de consulta visible en grilla, marca de Defensoría Móvil, badge "Multi-temática (N)" y pase asíncrono inmediato con toast (sin bloqueo de pantalla).
+- Implementado Drawer lateral de Actuante (Pantalla 5) y modales de conflicto de sesión e inactividad (Pantalla 1).
+- Creado `prototipo-ui/DISENO.md` con tokens, componentes, verificación de contraste y propuestas de mejora.
+- Servidor Vite activo en `http://localhost:5173/`. Sin cambios fuera de `prototipo-ui/` y docs.
+- Próxima sesión: Pantallas 4 (Registrar atención), 6 (Bandeja Asesor), 7 (Detalle Actuación) y 8 (Inicio por rol).
+
 ## 2026-11-19 — Cierre sesión 5
 - P1 respondida: Actuaciones con correlativo único que reinicia cada año, formato `DPJUJ-<n>-<año>` (configurable);
   el número histórico del FoxPro se conserva al migrar. P13 y P15 respondidas; nueva P19.

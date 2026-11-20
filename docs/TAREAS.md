@@ -34,7 +34,11 @@ Las vistas marcadas con 📷 necesitan capturas o descripción del FoxPro por pa
 - [x] (2026-11-19) `docs/SEGURIDAD-ACCESO.md` v0.1: ingreso, sesión única sin pérdida de datos, invitaciones, índice del panel
 - [ ] **Planificación detallada del Panel del Superadministrador** (pantallas, métricas, alertas) — sesión dedicada
 - [ ] Detallar cada informe (I-01…I-13): filtros, columnas, gráficos, exportación
-- [ ] Prototipo de interfaz con Gemini (`docs/PROMPT-GEMINI-UI.md`) → revisión en Chrome y tabla "qué traemos"
+- [x] (2026-11-19) Prototipo navegable de la interfaz en `prototipo-ui/` (React 18 + TS + Tailwind + Radix): Marco colapsable (Ctrl+B), 3 temas (Claro/Oscuro/Negro OLED) + Sistema, Cola de Mesa de Entradas con motivo visible y pase asíncrono, Drawer de Actuante, modales de conflicto e inactividad, buscador global (Ctrl+K). Documentado en `prototipo-ui/DISENO.md`.
+- [ ] Prototipo UI — Pantalla 4: Registrar atención (pasos: buscar DNI, antecedentes, pre-consulta o pase a asesor, consulta grupal)
+- [ ] Prototipo UI — Pantalla 6: Bandeja del Asesor (atención en curso, clasificador Nomenclador, agregar otra consulta, actuación servicio/conflicto)
+- [ ] Prototipo UI — Pantalla 7: Detalle de Actuación (pestañas, trámites en 7 categorías, Libro Diario, semáforos, reiteraciones, versiones)
+- [ ] Prototipo UI — Pantalla 8: Inicio por rol (tarjetas KPI accionables)
 - [ ] Detallar el modo sin conexión (PWA, D-006) antes de la fase de Defensoría Móvil
 
 ### Definiciones institucionales (dependen del usuario / la Defensoría)

@@ -48,6 +48,16 @@ pedido de informe a Legal y Técnica (`MENSAJES-SECTORES.md` §2).
 **P18. Logo y colores institucionales**: ¿hay manual de marca o logo oficial en buena calidad? (para la interfaz)
 - *Por defecto:* paleta sobria (azul institucional y grises), reemplazable cuando llegue el logo.
 
+**P20. Estado "Derivada" en la cola (prototipo, 2026-11-20)** → al dar pase, ¿la persona pasa directo a "En atención" o
+queda "Derivada" hasta que el profesional la llama?
+- *Por defecto:* queda **Derivada** (violeta) hasta que el profesional la toma desde su bandeja; ahí pasa a "En atención".
+  "Espera larga" se marca a partir de los 30 minutos de espera (valor que va a ser configurable desde la app).
+
+**P21. Pie del menú lateral** → la maqueta de Canva reemplazó el estado operativo (en línea, sede, contadores) por
+Configuración + ficha del usuario.
+- *Por defecto:* sale el estado operativo (los contadores ya están en las tarjetas de indicadores). La sede activa se
+  muestra en el selector de delegación de la barra superior, que todavía falta agregar.
+
 ## Respondidas
 - **P1 (2026-11-19):** correlativo único para toda la Defensoría que **reinicia cada año** (Actuación N° 1 cada
   1° de enero), con el año bien diferenciado. Formato en documentos: `DPJUJ-<número>-<año>` (configurable). Hoy el

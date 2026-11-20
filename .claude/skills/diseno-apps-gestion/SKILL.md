@@ -61,6 +61,7 @@ Si la app tiene su propia skill de marca (ej. `<proyecto>-diseno`), esa manda en
 - Clases de utilidades inventadas que no existen en el CSS: no dan error, simplemente no pintan.
 - Cambiar un archivo con la página abierta en dev genera falsos errores de hidratación: recargar antes de diagnosticar.
 
+- **Ancho de contenido chico y centrado** (`max-w-6xl`/`7xl mx-auto`): en monitores de 1600+ px deja franjas blancas enormes y aprieta las tablas (textos en 2–3 renglones). En pantallas de trabajo (colas, bandejas, tableros, detalle) usar tope amplio (~1540 px de contenido, padding 32–40 px); angostar solo formularios (`max-w-5xl`). Encabezados de tabla con `whitespace-nowrap`. (corrección del usuario, 2026-11-20)
 ## 7. Checklist
 - [ ] Marco: menú agrupado, activo sólido, colapsable, estado operativo al pie, barra superior de un renglón en celular
 - [ ] Tres temas probados; contraste verificado con script

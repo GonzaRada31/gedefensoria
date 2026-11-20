@@ -10,13 +10,9 @@ consultas, derive en tiempo real de Mesa de Entradas a Asesores, gestione Actuac
 trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema viejo: se rediseña** (`docs/FILOSOFIA_DISENO.md`).
 
 ## 2. Estado actual (actualizar al cerrar cada sesión)
-- Fase: **1 — Análisis y Definición.** Relevamiento 12 de 25 vistas (48%). En borrador: modelo de datos, DevOps
-  (alojamiento en revisión, D-005), informes, programas (modo sin conexión, D-006), acceso/panel, marco legal y
-  manual. Sin código todavía.
-- Última sesión: 2026-11-19 (sesión 5, cerrada) — ver `docs/BITACORA.md`
-- Próximo paso: integrar las fichas de capturas que genere Gemini (`docs/capturas/`, prioridad `V-AS-02`) y
-  revisar el prototipo de interfaz (`prototipo-ui/`). Sin eso: planificación detallada del Panel del
-  Superadministrador, máquinas de estado y plazos hábiles (ver `docs/TAREAS.md`).
+- Fase: **1 — Análisis y Definición.** Relevamiento 12 de 25 vistas (48%). Prototipo UI en marcha: Marco, Cola del día, Ficha lateral y modales (`prototipo-ui/`).
+- Última sesión: 2026-11-19 (sesión 6, cerrada) — ver `docs/BITACORA.md`
+- Próximo paso: continuar con el prototipo UI (Pantalla 4: Registrar atención; Pantalla 6: Bandeja del Asesor; Pantalla 7: Actuación y trámites).
 
 ## 3. Índice (leer solo cuando haga falta)
 | Archivo | Cuándo leerlo |
@@ -33,9 +29,10 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 | `docs/SEGURIDAD-ACCESO.md` | Ingreso, sesiones, invitaciones y Panel del Superadministrador |
 | `docs/MARCO-LEGAL.md` · `docs/MENSAJES-SECTORES.md` | Leyes que rigen a la Defensoría · pedidos de información a los sectores |
 | `docs/manual/` | Manual de Procedimientos (base del Centro de ayuda): al relevar o cambiar cómo se hace una tarea |
-| `docs/PROMPT-GEMINI-*.md` | Prompts para Gemini: relevar capturas · prototipo de interfaz |
+| `docs/PROMPT-*.md` | Prompts para otras IA: Gemini (capturas, prototipo) · Canva (maqueta de interfaz) |
 | `docs/PROBLEMATICAS.md` · `docs/ROADMAP.md` | Dolores del sistema actual · fases de alto nivel |
 | `docs/QA.md` | Al probar una pantalla en el navegador (método y registro) |
+| `docs/PARTES-PANTALLA.md` | Nombres de cada zona de la pantalla (para hablar del diseño con el usuario) |
 | `docs/INDEX.md` | Mapa completo de la documentación (para personas) |
 | `.claude/skills/*/SKILL.md` | Cuando la tarea coincide con la descripción de la skill |
 
