@@ -11,6 +11,7 @@ Si la app tiene su propia skill de marca (ej. `<proyecto>-diseno`), esa manda en
 ## 1. Marco de la pantalla
 - **Menú lateral oscuro sobre contenido claro** ("marco y hoja"): es lo que más profesionalismo aporta con menos
   esfuerzo. Token propio (`chrome`, `on-chrome`, `on-chrome-muted`, `chrome-hover`), oscuro en todos los temas.
+  Variante válida: menú del **color de marca** con ítem activo blanco (gedefensoria, estilo Canva).
 - **Agrupar el menú por tarea** (General · Ventas · Stock · Configuración · Sistema), no por orden de construcción.
   Títulos de grupo en mayúsculas chicas, color secundario.
 - **Ítem activo sólido** (color de acción + texto que contraste ≥ 4,5:1). Es navegación: no cuenta como el primario.
@@ -60,8 +61,9 @@ Si la app tiene su propia skill de marca (ej. `<proyecto>-diseno`), esa manda en
 - Widget que lee "la" ubicación cuando hay varias (usar la principal explícitamente).
 - Clases de utilidades inventadas que no existen en el CSS: no dan error, simplemente no pintan.
 - Cambiar un archivo con la página abierta en dev genera falsos errores de hidratación: recargar antes de diagnosticar.
-
 - **Ancho de contenido chico y centrado** (`max-w-6xl`/`7xl mx-auto`): en monitores de 1600+ px deja franjas blancas enormes y aprieta las tablas (textos en 2–3 renglones). En pantallas de trabajo (colas, bandejas, tableros, detalle) usar tope amplio (~1540 px de contenido, padding 32–40 px); angostar solo formularios (`max-w-5xl`). Encabezados de tabla con `whitespace-nowrap`. (corrección del usuario, 2026-11-20)
+- **Un mismo color para botón sólido y para texto/enlace** rompe el tema oscuro (o el botón queda pálido o el enlace no se lee): separar tokens `primary` (texto) y `primary-solid` (fondos). (gedefensoria, 2026-11-20)
+
 ## 7. Checklist
 - [ ] Marco: menú agrupado, activo sólido, colapsable, estado operativo al pie, barra superior de un renglón en celular
 - [ ] Tres temas probados; contraste verificado con script

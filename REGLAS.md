@@ -82,7 +82,7 @@ trazabilidad, y dé estadísticas para decidir. **No es una copia del sistema vi
 - **Regla de oro:** si el usuario corrige algo que podría repetirse, se agrega a la skill que corresponda (o se crea
   una) en la misma sesión, y se anota en la bitácora con `[skill]`.
 - Skills: `gestion-expedientes` (dominio de la Defensoría), `desarrollo-apps-negocio` (método; el stack de acá es D-001),
-  `diseno-apps-gestion` (pantallas), `pasos-manuales` (pasos web del usuario), `cierre-de-sesion`.
+  `diseno-apps-gestion` (pantallas, genérica), `gedefensoria-diseno` (sistema de diseño UX/UI y frontend propio), `pasos-manuales` (pasos web del usuario), `cierre-de-sesion`.
 
 ## 7. Cierre de sesión (obligatorio)
 Cuando el usuario diga "cerramos", "fin de sesión" o similar → skill `cierre-de-sesion`.

@@ -2,6 +2,8 @@
 **Defensoría del Pueblo de la Provincia de Jujuy (Argentina)**  
 *Prototipo UI Navegable — Noviembre 2026*
 
+> **Reglas vigentes de diseño:** skill `.claude/skills/gedefensoria-diseno/SKILL.md` (manda sobre este documento).
+>
 > **Actualización 2026-11-20:** se adoptó el estilo de la maqueta de Canva (verde azulado institucional, menú lateral de color con ítem activo blanco, radios 10/16 px, sombras suaves, indicadores grandes). Fuente: código exportado de Canva en `docs/modelocanva.md`. Los valores vigentes (copiados de ahí, con mínimo de 12 px de letra) están en `src/index.css`; la tabla §2.1 de abajo quedó como historial del estilo anterior.
 
 ---

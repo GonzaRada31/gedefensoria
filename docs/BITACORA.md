@@ -10,6 +10,7 @@
 - Versión celular: barra inferior, tarjetas en lugar de tabla, header compacto. Encabezado de pantalla único (`PageHeader`).
 - "Cola del día" → "Atenciones del día" en toda la app. Ancho de contenido 1540 px y header alineado con el centro.
 - Ficha de usuario + Configuración al pie del menú. Mapa de zonas: `docs/PARTES-PANTALLA.md`. Preguntas P20–P21.
+- [skill] Nueva `gedefensoria-diseno` (sistema de diseño UX/UI propio: tokens, zonas, componentes, vocabulario, QA).
 - [skill] `diseno-apps-gestion` §6: no limitar el ancho de pantallas de trabajo con max-w chico centrado.
 
 ## 2026-11-19 — Sesión 6: Prototipo UI navegable (Marco, Mesa de Entradas y tokens)
