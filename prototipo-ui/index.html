@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="claro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Defensoría del Pueblo de Jujuy — Sistema de Gestión</title>
+    <meta name="description" content="Sistema de Gestión de Actuaciones de la Defensoría del Pueblo de la Provincia de Jujuy" />
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('gedefensoria-theme') || 'sistema';
+          let theme = stored;
+          if (stored === 'sistema') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro';
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.setAttribute('data-theme-setting', stored);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'claro');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-background text-foreground antialiased min-h-screen selection:bg-primary-100 selection:text-primary-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

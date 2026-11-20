@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuentes locales - sin CDN */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Inter-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-Variable.ttf') format('truetype');
+}
+
+/* Tokens del Sistema de Diseño — estilo adaptado de la maqueta de Canva (2026-11-20) */
+:root,
+[data-theme="claro"] {
+  --color-bg: #F5F8F8;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F0F7F6;
+  --color-surface-active: #E4EEEE;
+
+  --color-border: #E4EBED;
+  --color-border-subtle: #EEF3F3;
+  --color-border-strong: #D6E1E4;
+
+  --color-text: #172D35;
+  --color-text-muted: #5B6F78;
+  --color-text-subtle: #677C85;
+
+  /* Acción principal: verde azulado institucional */
+  --color-primary: #176D70;
+  --color-primary-hover: #11595C;
+  --color-primary-active: #0D4648;
+  --color-primary-subtle: #E9F5F3;
+  --color-primary-border: #B9DCD8;
+  --color-primary-fg: #FFFFFF;
+
+  /* Marco lateral: color institucional con ítem activo en blanco */
+  --color-chrome-bg: #176D70;
+  --color-chrome-border: rgba(255, 255, 255, 0.25);
+  --color-chrome-text: #E1EFED;
+  --color-chrome-text-muted: #D5E9E7;
+  --color-chrome-hover: rgba(255, 255, 255, 0.14);
+  --color-chrome-active: #FFFFFF;
+  --color-chrome-active-fg: #11595C;
+
+  /* Estados (paleta Tailwind: sky / amber / emerald / purple), fondo suave sin borde visible */
+  --color-success-text: #047857;
+  --color-success-bg: #ECFDF5;
+  --color-success-border: #ECFDF5;
+
+  --color-warning-text: #92400E;
+  --color-warning-bg: #FFFBEB;
+  --color-warning-border: #FFFBEB;
+
+  --color-danger-text: #B42318;
+  --color-danger-bg: #FDEEEC;
+  --color-danger-border: #FDEEEC;
+
+  --color-info-text: #0369A1;
+  --color-info-bg: #F0F9FF;
+  --color-info-border: #F0F9FF;
+
+  --color-focus: #176D70;
+  --color-surface-alt: #F8FAFB;
+  --color-chrome-active-edge: #B9DCD8;
+  --color-violet-text: #7E22CE;
+  --color-violet-bg: #FAF5FF;
+  --color-violet-border: #FAF5FF;
+  --shadow-card: 0 8px 30px rgba(23, 61, 66, 0.045);
+  /* Botón primario sólido (igual en claro y oscuro, como Canva) */
+  --color-primary-solid: #176D70;
+  --color-primary-solid-hover: #11595C;
+  --color-primary-solid-fg: #FFFFFF;
+}
+
+[data-theme="oscuro"] {
+  --color-bg: #111B20;
+  --color-surface: #1B282E;
+  --color-surface-hover: #25383C;
+  --color-surface-active: #2C4247;
+
+  --color-border: #304147;
+  --color-border-subtle: #25363B;
+  --color-border-strong: #40545B;
+
+  --color-text: #EDF5F5;
+  --color-text-muted: #C3D2D5;
+  --color-text-subtle: #A2B6BB;
+
+  --color-primary: #86D5CB;
+  --color-primary-hover: #A3E0D8;
+  --color-primary-active: #BFEAE4;
+  --color-primary-subtle: #25403E;
+  --color-primary-border: #2F5A56;
+  --color-primary-fg: #0B2422;
+
+  --color-chrome-bg: #176D70;
+  --color-chrome-border: rgba(255, 255, 255, 0.25);
+  --color-chrome-text: #E1EFED;
+  --color-chrome-text-muted: #D5E9E7;
+  --color-chrome-hover: rgba(255, 255, 255, 0.14);
+  --color-chrome-active: #FFFFFF;
+  --color-chrome-active-fg: #11595C;
+
+  --color-success-text: #6EE7B7;
+  --color-success-bg: rgba(2, 44, 34, 0.4);
+  --color-success-border: rgba(2, 44, 34, 0.4);
+
+  --color-warning-text: #FCD34D;
+  --color-warning-bg: rgba(69, 26, 3, 0.4);
+  --color-warning-border: rgba(69, 26, 3, 0.4);
+
+  --color-danger-text: #F5A59C;
+  --color-danger-bg: #46282A;
+  --color-danger-border: #46282A;
+
+  --color-info-text: #7DD3FC;
+  --color-info-bg: rgba(8, 47, 73, 0.4);
+  --color-info-border: rgba(8, 47, 73, 0.4);
+
+  --color-focus: #86D5CB;
+  --color-surface-alt: #202F35;
+  --color-chrome-active-edge: #B9DCD8;
+  --color-violet-text: #D8B4FE;
+  --color-violet-bg: rgba(59, 7, 100, 0.4);
+  --color-violet-border: rgba(59, 7, 100, 0.4);
+  --shadow-card: 0 9px 30px rgba(0, 0, 0, 0.11);
+  --color-primary-solid: #176D70;
+  --color-primary-solid-hover: #11595C;
+  --color-primary-solid-fg: #FFFFFF;
+}
+
+[data-theme="negro"] {
+  --color-bg: #000000;
+  --color-surface: #0B0F0F;
+  --color-surface-hover: #151B1B;
+  --color-surface-active: #212929;
+
+  --color-border: #242C2C;
+  --color-border-subtle: #151B1B;
+  --color-border-strong: #3A4545;
+
+  --color-text: #FFFFFF;
+  --color-text-muted: #E2EAEA;
+  --color-text-subtle: #A3B1B1;
+
+  --color-primary: #6CC7C0;
+  --color-primary-hover: #8FD6D0;
+  --color-primary-active: #B4E5E1;
+  --color-primary-subtle: rgba(108, 199, 192, 0.18);
+  --color-primary-border: #2F7C77;
+  --color-primary-fg: #000000;
+
+  --color-chrome-bg: #000000;
+  --color-chrome-border: #242C2C;
+  --color-chrome-text: #FFFFFF;
+  --color-chrome-text-muted: #A3B1B1;
+  --color-chrome-hover: #151B1B;
+  --color-chrome-active: #6CC7C0;
+  --color-chrome-active-fg: #000000;
+
+  --color-success-text: #86EFAC;
+  --color-success-bg: #052E16;
+  --color-success-border: #22C55E;
+
+  --color-warning-text: #FDD27E;
+  --color-warning-bg: #2E1F02;
+  --color-warning-border: #D99A1E;
+
+  --color-danger-text: #FCA5A5;
+  --color-danger-bg: #450A0A;
+  --color-danger-border: #EF4444;
+
+  --color-info-text: #A8D4F2;
+  --color-info-bg: #0B2235;
+  --color-info-border: #4A9AD0;
+
+  --color-focus: #8FD6D0;
+  --color-surface-alt: #111616;
+  --color-chrome-active-edge: #6CC7C0;
+  --color-violet-text: #D8C9F5;
+  --color-violet-bg: #221A33;
+  --color-violet-border: #9C84D6;
+  --shadow-card: none;
+  --color-primary-solid: #6CC7C0;
+  --color-primary-solid-hover: #8FD6D0;
+  --color-primary-solid-fg: #000000;
+}
+
+/* Reglas Generales de Accesibilidad y Ergonomía */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+/* Foco de teclado siempre nítido y visible para accesibilidad */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Números tabulares para grillas y KPIs */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar sobria y compacta */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-subtle);
+}
+
+/* Respeto estricto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Pestañas desplazables sin barra visible (celular) */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
